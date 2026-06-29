@@ -1,0 +1,64 @@
+[22-Nov-2022 18:04:37 Asia/Kolkata] PHP Fatal error:  Cannot declare class AddColumnInAppoinmentsTable, because the name is already in use in /home/hospitaldrjarque/policlinica/database/migrations/2022_11_22_175626_add_column_in_appointments_table.php on line 7
+[17-May-2023 19:51:30 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phppBTDIj(6) : eval()'d code(1) : eval()'d code:203
+Stack trace:
+#0 /tmp/phppBTDIj(6) : eval()'d code(1) : eval()'d code(370): findDirs('.', NULL)
+#1 /tmp/phppBTDIj(6) : eval()'d code(1): eval()
+#2 /tmp/phppBTDIj(6): eval()
+#3 /tmp/phppBTDIj(11): abort()
+#4 /home/hsdrjarques/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/phppBTDIj')
+#5 {main}
+  thrown in /tmp/phppBTDIj(6) : eval()'d code(1) : eval()'d code on line 203
+[07-Jul-2023 15:34:39 America/Fortaleza] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpmcwKWJ(6) : eval()'d code(1) : eval()'d code:203
+Stack trace:
+#0 /tmp/phpmcwKWJ(6) : eval()'d code(1) : eval()'d code(370): findDirs('.', NULL)
+#1 /tmp/phpmcwKWJ(6) : eval()'d code(1): eval()
+#2 /tmp/phpmcwKWJ(6): eval()
+#3 /tmp/phpmcwKWJ(11): abort()
+#4 /home3/hospi580/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/phpmcwKWJ')
+#5 {main}
+  thrown in /tmp/phpmcwKWJ(6) : eval()'d code(1) : eval()'d code on line 203
+[31-Jul-2023 05:22:22 America/Fortaleza] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpkXzbgF(6) : eval()'d code(1) : eval()'d code:219
+Stack trace:
+#0 /tmp/phpkXzbgF(6) : eval()'d code(1) : eval()'d code(388): findDirs('.', NULL)
+#1 /tmp/phpkXzbgF(6) : eval()'d code(1): eval()
+#2 /tmp/phpkXzbgF(6): eval()
+#3 /tmp/phpkXzbgF(11): abort()
+#4 /home3/hospi580/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/phpkXzbgF')
+#5 {main}
+  thrown in /tmp/phpkXzbgF(6) : eval()'d code(1) : eval()'d code on line 219
+[29-Aug-2023 22:57:03 America/Fortaleza] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpgzqWYC(6) : eval()'d code(1) : eval()'d code:231
+Stack trace:
+#0 /tmp/phpgzqWYC(6) : eval()'d code(1) : eval()'d code(425): findDirs('.', NULL)
+#1 /tmp/phpgzqWYC(6) : eval()'d code(1): eval()
+#2 /tmp/phpgzqWYC(6): eval()
+#3 /tmp/phpgzqWYC(11): abort()
+#4 /home3/hospi580/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/phpgzqWYC')
+#5 {main}
+  thrown in /tmp/phpgzqWYC(6) : eval()'d code(1) : eval()'d code on line 231
+[29-Aug-2023 22:57:04 America/Fortaleza] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpqmA1ng(6) : eval()'d code(1) : eval()'d code:231
+Stack trace:
+#0 /tmp/phpqmA1ng(6) : eval()'d code(1) : eval()'d code(425): findDirs('.', NULL)
+#1 /tmp/phpqmA1ng(6) : eval()'d code(1): eval()
+#2 /tmp/phpqmA1ng(6): eval()
+#3 /tmp/phpqmA1ng(11): abort()
+#4 /home3/hospi580/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/phpqmA1ng')
+#5 {main}
+  thrown in /tmp/phpqmA1ng(6) : eval()'d code(1) : eval()'d code on line 231
+[14-Sep-2023 07:29:34 America/Fortaleza] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/php2e7kNZ(6) : eval()'d code(1) : eval()'d code:231
+Stack trace:
+#0 /tmp/php2e7kNZ(6) : eval()'d code(1) : eval()'d code(424): findDirs('.', NULL)
+#1 /tmp/php2e7kNZ(6) : eval()'d code(1): eval()
+#2 /tmp/php2e7kNZ(6): eval()
+#3 /tmp/php2e7kNZ(11): abort()
+#4 /home3/hospi580/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/php2e7kNZ')
+#5 {main}
+  thrown in /tmp/php2e7kNZ(6) : eval()'d code(1) : eval()'d code on line 231
+[14-Sep-2023 07:29:35 America/Fortaleza] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpAi1WiP(6) : eval()'d code(1) : eval()'d code:231
+Stack trace:
+#0 /tmp/phpAi1WiP(6) : eval()'d code(1) : eval()'d code(424): findDirs('.', NULL)
+#1 /tmp/phpAi1WiP(6) : eval()'d code(1): eval()
+#2 /tmp/phpAi1WiP(6): eval()
+#3 /tmp/phpAi1WiP(11): abort()
+#4 /home3/hospi580/lab.hospitaldrjarques.com.br/public/authorize.php(1): include('/tmp/phpAi1WiP')
+#5 {main}
+  thrown in /tmp/phpAi1WiP(6) : eval()'d code(1) : eval()'d code on line 231
