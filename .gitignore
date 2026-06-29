@@ -1,32 +1,23 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
 
-node_modules
-dist
-dist-ssr
-.output
-.vinxi
-.tanstack/**
-.nitro
-*.local
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
 
-# Wrangler / Cloudflare
-.wrangler/
-.dev.vars
+# Laravel 5 & Lumen specific
+# public/storage
+public/hot
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Laravel 5 & Lumen specific with changed public path
+# public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
