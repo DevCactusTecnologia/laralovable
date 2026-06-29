@@ -1,75 +1,86 @@
 @extends('layouts.master-without-nav')
-@section('title') Login @endsection
-@section('body') <body class="bg-white"> @endsection
-<style> .btn:focus { outline: none; } </style>
+@section('title') Entrar @endsection
+@section('body') <body style="background: var(--slc-bg);"> @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center"> 
-            <div class="col-lg-6 p-md-5 p-1" style="height: 100vh;">
-                <div class="container col-xl-9 col-lg-12 col-md-12 d-flex flex-column justify-content-between" style="height: 100vh">
-                    <div class="p-5 py-lg-2">
-                        <h3>Bem vindo de volta 👋</h3>
-                        <p>Hoje é um dia novo. É seu dia. Favor entrar para começar a gerenciar seu trabalho.</p>
-
-                        <form method="POST" action="{{ url('login') }}">
-                            @csrf
-
-                            {{--ALERTAS  --}}
-                            @if ($msg = Session::get('error'))
-                                <div class="alert alert-danger">
-                                    <span> {{ $msg }} </span>
-                                </div>
-                            @endif
-                            @if ($msg = Session::get('success'))
-                                <div class="alert alert-success">
-                                    <span> {{ $msg }} </span>
-                                </div>
-                            @endif
-
-                            {{-- USUARIO E SENHA --}}
-                            <div class="form-group">
-                                <label for="username">Usuário</label>
-                                <input name="email" type="email" id="email"
-                                    class="form-control @error('email') is-invalid @enderror"
-                                    @if (old('email')) value="{{ old('email') }}" @else value="" @endif
-                                    id="username" placeholder="Digite seu usuário" autocomplete="email"
-                                    style="border-radius:10px;" autofocus
-                                >
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="userpassword">Senha</label>
-                                <input type="password" name="password" id="pass"
-                                    class="form-control @error('password') is-invalid @enderror" id="userpassword"
-                                    placeholder="Digite sua senha" style="border-radius:10px;"
-                                    @if (old('password')) value="{{ old('password') }}" @else value="" @endif
-                                >
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-block waves-effect"
-                                    style="border-radius:10px;background-color:#172D3A;color:white"
-                                >
-                                    Entrar
-                                </button>
-                            </div>
-                        </form>
+    <div class="slc-auth-shell">
+        <div class="row g-0">
+            {{-- HERO ESQUERDO --}}
+            <div class="col-lg-6 d-none d-lg-flex">
+                <div class="slc-auth-hero w-100">
+                    <div>
+                        <span class="slc-eyebrow">Mais laudos liberados, menos retrabalho</span>
+                        <h1>Gestão completa para <em>laboratórios clínicos</em></h1>
+                        <p class="slc-lead">
+                            Do atendimento ao resultado, tudo em um único sistema seguro e
+                            escalável. Coleta rastreada, análises validadas, financeiro integrado.
+                        </p>
+                        <ul class="slc-bullets">
+                            <li>Reduz retrabalho e recoletas</li>
+                            <li>Laudos liberados em minutos</li>
+                            <li>Rastreabilidade ponta a ponta</li>
+                        </ul>
                     </div>
-                    <div class="text-center"><p>© {{ date('Y') }} SISLAC TODOS OS DIREITOS RESERVADOS</p></div>
+                    <div class="slc-foot">© {{ date('Y') }} SISLAC · Todos os direitos reservados</div>
                 </div>
             </div>
-            <div class="col-lg-6 d-lg-block d-none p-2">
-                <div class="container" style="height:100vh">
-                    <img src={{ asset('assets/images/login.webp') }} alt="Login" class="w-100" style='border-radius:14px;object-fit:cover;height:104vh'>
+
+            {{-- FORM DIREITO --}}
+            <div class="col-lg-6">
+                <div class="slc-auth-panel">
+                    <div class="slc-logo">
+                        <span class="slc-mark">⚗</span> SISLAC
+                    </div>
+
+                    <h2>Bem vindo de volta 👋</h2>
+                    <p class="slc-sub">Hoje é um dia novo. Entre para começar a gerenciar seu trabalho.</p>
+
+                    <form method="POST" action="{{ url('login') }}">
+                        @csrf
+
+                        {{-- ALERTAS --}}
+                        @if ($msg = Session::get('error'))
+                            <div class="alert alert-danger" style="border-radius: var(--slc-radius-sm); border:none; background:#fee2e2; color:#991b1b;">
+                                <span>{{ $msg }}</span>
+                            </div>
+                        @endif
+                        @if ($msg = Session::get('success'))
+                            <div class="alert alert-success" style="border-radius: var(--slc-radius-sm); border:none; background:#d1fae5; color:#065f46;">
+                                <span>{{ $msg }}</span>
+                            </div>
+                        @endif
+
+                        <div class="form-group mb-3">
+                            <label for="email">Usuário</label>
+                            <input name="email" type="email" id="email"
+                                class="form-control @error('email') is-invalid @enderror"
+                                value="{{ old('email') }}"
+                                placeholder="Digite seu e-mail" autocomplete="email" autofocus>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="pass">Senha</label>
+                            <input type="password" name="password" id="pass"
+                                class="form-control @error('password') is-invalid @enderror"
+                                placeholder="Digite sua senha">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Entrar →
+                        </button>
+                    </form>
+
+                    <div class="slc-foot d-lg-none">© {{ date('Y') }} SISLAC</div>
                 </div>
             </div>
         </div>
