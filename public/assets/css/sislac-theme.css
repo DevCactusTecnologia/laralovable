@@ -1,0 +1,333 @@
+/* ============================================================
+   SISLAC THEME — Design tokens + overrides
+   Inspirado em https://appsislac.lovable.app/
+   Mantém Bootstrap; aplica nova linguagem visual via variáveis.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Paleta */
+  --slc-bg:           #f7f8fc;
+  --slc-surface:      #ffffff;
+  --slc-surface-2:    #f3f4fb;
+  --slc-border:       #e5e7f0;
+  --slc-text:         #0b0d17;
+  --slc-text-muted:   #5b6478;
+  --slc-primary:      #4f46e5;
+  --slc-primary-600:  #4338ca;
+  --slc-primary-50:   #eef2ff;
+  --slc-success:      #10b981;
+  --slc-warning:      #f59e0b;
+  --slc-danger:       #ef4444;
+  --slc-info:         #0ea5e9;
+
+  /* Forma */
+  --slc-radius-sm: 10px;
+  --slc-radius:    16px;
+  --slc-radius-lg: 24px;
+  --slc-radius-pill: 999px;
+
+  /* Sombra */
+  --slc-shadow-sm: 0 1px 2px rgba(11,13,23,.04), 0 1px 1px rgba(11,13,23,.03);
+  --slc-shadow:    0 8px 24px -12px rgba(79,70,229,.18), 0 2px 6px rgba(11,13,23,.04);
+  --slc-shadow-lg: 0 24px 60px -20px rgba(79,70,229,.25);
+
+  /* Tipografia */
+  --slc-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---------- Base ---------- */
+body, .font-size-14, .font-size-13 {
+  font-family: var(--slc-font) !important;
+  color: var(--slc-text);
+  background-color: var(--slc-bg);
+  letter-spacing: -0.005em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--slc-font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--slc-text);
+}
+
+a { color: var(--slc-primary); }
+a:hover { color: var(--slc-primary-600); }
+
+.text-muted { color: var(--slc-text-muted) !important; }
+
+/* ---------- Cards ---------- */
+.card {
+  border: 1px solid var(--slc-border);
+  border-radius: var(--slc-radius);
+  box-shadow: var(--slc-shadow-sm);
+  background: var(--slc-surface);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.card:hover { box-shadow: var(--slc-shadow); }
+.card .card-body { padding: 1.25rem 1.5rem; }
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--slc-border);
+  border-radius: var(--slc-radius) var(--slc-radius) 0 0 !important;
+  font-weight: 600;
+}
+
+/* Mini stats (dashboard KPIs) */
+.mini-stats-wid {
+  border-radius: var(--slc-radius);
+}
+.mini-stats-wid .card-body h5 {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--slc-text-muted) !important;
+}
+.mini-stats-wid h4 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--slc-text) !important;
+  letter-spacing: -0.02em;
+}
+.mini-stat-icon.bg-primary,
+.avatar-title.bg-primary,
+.bg-primary {
+  background: var(--slc-primary) !important;
+}
+.mini-stat-icon {
+  border-radius: 14px !important;
+  width: 48px; height: 48px;
+}
+
+/* Soft tints */
+.bg-soft-primary { background-color: var(--slc-primary-50) !important; }
+.text-primary    { color: var(--slc-primary) !important; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  border-radius: var(--slc-radius-pill);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  padding: .55rem 1.25rem;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .15s;
+}
+.btn:focus, .btn:active { outline: none !important; box-shadow: none !important; }
+.btn-primary {
+  background: var(--slc-primary);
+  border-color: var(--slc-primary);
+  box-shadow: 0 6px 20px -8px rgba(79,70,229,.55);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: var(--slc-primary-600);
+  border-color: var(--slc-primary-600);
+  transform: translateY(-1px);
+}
+.btn-outline-primary {
+  color: var(--slc-primary);
+  border-color: var(--slc-primary);
+}
+.btn-outline-primary:hover {
+  background: var(--slc-primary);
+  color: #fff;
+}
+.btn-dark {
+  background: #0b0d17;
+  border-color: #0b0d17;
+}
+
+/* ---------- Forms ---------- */
+.form-control, .form-select {
+  border-radius: var(--slc-radius-sm) !important;
+  border: 1px solid var(--slc-border);
+  padding: .65rem .9rem;
+  font-family: var(--slc-font);
+  background: #fff;
+  transition: border-color .15s, box-shadow .15s;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--slc-primary);
+  box-shadow: 0 0 0 4px rgba(79,70,229,.12);
+}
+.form-group label, label.form-label {
+  font-weight: 500;
+  color: var(--slc-text);
+  margin-bottom: .35rem;
+  font-size: 13.5px;
+}
+
+/* ---------- Tables ---------- */
+.table {
+  font-size: 14px;
+  color: var(--slc-text);
+}
+.table thead th {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 600;
+  color: var(--slc-text-muted);
+  border-bottom: 1px solid var(--slc-border);
+  background: transparent;
+}
+.table tbody tr { transition: background-color .15s; }
+.table tbody tr:hover { background-color: var(--slc-surface-2); }
+.table td { border-top: 1px solid var(--slc-border); vertical-align: middle; }
+
+/* ---------- Badges ---------- */
+.badge {
+  border-radius: var(--slc-radius-pill);
+  font-weight: 500;
+  padding: .35em .75em;
+  font-size: 11.5px;
+  letter-spacing: .01em;
+}
+
+/* ---------- Topbar/Nav ---------- */
+#page-topbar {
+  background: var(--slc-surface) !important;
+  border-bottom: 1px solid var(--slc-border);
+  box-shadow: var(--slc-shadow-sm);
+}
+.topnav {
+  background: var(--slc-surface) !important;
+  border-bottom: 1px solid var(--slc-border);
+}
+.topnav .navbar-nav .nav-link {
+  color: var(--slc-text) !important;
+  font-weight: 500;
+  border-radius: var(--slc-radius-sm);
+  margin: 0 .15rem;
+  transition: background-color .15s, color .15s;
+}
+.topnav .navbar-nav .nav-link:hover,
+.topnav .navbar-nav .nav-link.active {
+  background: var(--slc-primary-50);
+  color: var(--slc-primary) !important;
+}
+
+/* ---------- Login page (mirrors landing reference) ---------- */
+.slc-auth-shell {
+  min-height: 100vh;
+  background: var(--slc-bg);
+}
+.slc-auth-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at -10% -20%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(800px 500px at 110% 110%, rgba(255,255,255,.10), transparent 60%),
+    linear-gradient(160deg, #4f46e5 0%, #4338ca 55%, #312e81 100%);
+  color: #fff;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0;
+}
+.slc-auth-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  pointer-events: none;
+}
+.slc-auth-hero > * { position: relative; z-index: 1; }
+.slc-auth-hero .slc-eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: .4rem .85rem;
+  border-radius: var(--slc-radius-pill);
+  font-size: 12.5px; font-weight: 500;
+  width: fit-content;
+}
+.slc-auth-hero .slc-eyebrow::before {
+  content: ''; width: 6px; height: 6px; border-radius: 999px;
+  background: #a5f3fc; box-shadow: 0 0 12px #a5f3fc;
+}
+.slc-auth-hero h1 {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-top: 1.25rem;
+}
+.slc-auth-hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #c7d2fe, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.slc-auth-hero p.slc-lead {
+  color: rgba(255,255,255,.82);
+  max-width: 36ch;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+.slc-auth-hero ul.slc-bullets {
+  list-style: none; padding: 0; margin: 1.75rem 0 0;
+  display: grid; gap: .65rem;
+}
+.slc-auth-hero ul.slc-bullets li {
+  display: flex; align-items: center; gap: .65rem;
+  color: rgba(255,255,255,.92); font-size: 14px;
+}
+.slc-auth-hero ul.slc-bullets li::before {
+  content: '✓';
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  color: #a7f3d0; font-size: 12px; font-weight: 700;
+}
+.slc-auth-hero .slc-foot {
+  color: rgba(255,255,255,.6); font-size: 12.5px;
+}
+
+.slc-auth-panel {
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+  display: flex; flex-direction: column; justify-content: center;
+  min-height: 100vh;
+  background: var(--slc-surface);
+}
+.slc-auth-panel .slc-logo {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-weight: 800; letter-spacing: -0.02em;
+  color: var(--slc-text); font-size: 18px; margin-bottom: 2rem;
+}
+.slc-auth-panel .slc-logo .slc-mark {
+  width: 36px; height: 36px; border-radius: 11px;
+  background: linear-gradient(135deg, var(--slc-primary), #818cf8);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 18px;
+  box-shadow: 0 8px 20px -8px rgba(79,70,229,.6);
+}
+.slc-auth-panel h2 {
+  font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: .35rem;
+}
+.slc-auth-panel .slc-sub { color: var(--slc-text-muted); margin-bottom: 1.75rem; }
+.slc-auth-panel .btn-block {
+  width: 100%; padding: .8rem 1.25rem; font-size: 15px;
+}
+.slc-auth-panel .slc-foot {
+  margin-top: 2rem; color: var(--slc-text-muted); font-size: 12.5px; text-align: center;
+}
+
+/* ---------- Misc helpers ---------- */
+.rounded-xl { border-radius: var(--slc-radius) !important; }
+.shadow-soft { box-shadow: var(--slc-shadow) !important; }
+
+/* Scrollbar refinement */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #d3d6e3; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #b9bdd0; }
