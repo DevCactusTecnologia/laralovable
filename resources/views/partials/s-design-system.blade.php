@@ -237,15 +237,90 @@
 .s-page .pagination .page-item .page-link{border-radius:9px!important;margin:0 2px;border:1px solid var(--s-border-strong);color:var(--s-text);font-size:.82rem;padding:6px 11px;background:#fff;}
 .s-page .pagination .page-item.active .page-link{background:linear-gradient(135deg,var(--s-primary),var(--s-secondary));border-color:transparent;color:#fff;}
 
+/* ===== Select2 — elegant dropdown ===== */
 .s-page .select2-container--default .select2-selection--single,
 .s-page .select2-container--default .select2-selection--multiple{
     border:1px solid var(--s-border-strong)!important;border-radius:11px!important;
     min-height:42px!important;padding:5px 8px!important;
+    transition:border-color .2s, box-shadow .2s !important;
+}
+.s-page .select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height:30px!important;color:var(--s-text)!important;padding-left:6px!important;
+}
+.s-page .select2-container--default .select2-selection--single .select2-selection__arrow{
+    height:40px!important;top:1px!important;right:6px!important;
+    transition:transform .25s ease;
+}
+.s-page .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+    transform:rotate(180deg);transition:transform .25s ease;
 }
 .s-page .select2-container--default.select2-container--focus .select2-selection--multiple,
+.s-page .select2-container--default.select2-container--open .select2-selection--single,
 .s-page .select2-container--default .select2-selection--single:focus{
     border-color:var(--s-primary)!important;box-shadow:0 0 0 3px rgba(79,70,229,.12)!important;
 }
+
+/* Dropdown panel — animated, elegant */
+.select2-container--default .select2-dropdown{
+    border:1px solid var(--s-border-strong)!important;
+    border-radius:14px!important;
+    box-shadow:0 20px 40px -16px rgba(15,23,42,.18), 0 4px 12px -6px rgba(15,23,42,.08)!important;
+    overflow:hidden;
+    transform-origin:top center;
+    animation:sSelectOpen .22s cubic-bezier(.16,1,.3,1);
+    margin-top:6px;
+    padding:6px;
+    background:#fff;
+}
+.select2-container--default .select2-dropdown--above{
+    margin-top:0;margin-bottom:6px;transform-origin:bottom center;
+    animation:sSelectOpenUp .22s cubic-bezier(.16,1,.3,1);
+}
+.select2-container--default .select2-search--dropdown{padding:4px 4px 8px;}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    border:1px solid var(--s-border-strong)!important;
+    border-radius:10px!important;padding:8px 12px!important;
+    font-size:.85rem!important;outline:none!important;transition:.2s;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field:focus{
+    border-color:var(--s-primary)!important;box-shadow:0 0 0 3px rgba(79,70,229,.12)!important;
+}
+.select2-container--default .select2-results__option{
+    padding:9px 12px!important;border-radius:9px!important;
+    font-size:.875rem;color:var(--s-text);
+    transition:background .15s, color .15s, transform .15s;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option--highlighted{
+    background:linear-gradient(135deg,#eef2ff,#f5f3ff)!important;
+    color:var(--s-accent)!important;
+    transform:translateX(2px);
+}
+.select2-container--default .select2-results__option[aria-selected=true]{
+    background:#eef2ff!important;color:var(--s-accent)!important;font-weight:600;
+}
+.select2-container--default .select2-results__option--disabled{color:#cbd5e1!important;}
+
+@keyframes sSelectOpen{
+    0%{opacity:0;transform:translateY(-6px) scale(.98);}
+    100%{opacity:1;transform:translateY(0) scale(1);}
+}
+@keyframes sSelectOpenUp{
+    0%{opacity:0;transform:translateY(6px) scale(.98);}
+    100%{opacity:1;transform:translateY(0) scale(1);}
+}
+
+/* Native <select> — replace OS chevron with elegant SVG arrow */
+.s-page select:not([multiple]):not([size]){
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>")!important;
+    background-repeat:no-repeat!important;
+    background-position:right 12px center!important;
+    padding-right:36px!important;
+    cursor:pointer;
+    transition:border-color .2s, box-shadow .2s, background-color .2s;
+}
+.s-page select:not([multiple]):not([size]):hover{border-color:var(--s-primary)!important;}
 
 @media (max-width:575px){
     .s-page .card-body{padding:14px;}
