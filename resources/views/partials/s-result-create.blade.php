@@ -189,15 +189,18 @@ document.addEventListener('DOMContentLoaded', function(){
     page.insertBefore(back, page.firstChild);
 
     // ---- 2. Header do paciente reconstruído ----
-    var data = @json([
-        'name'      => $appointment->patient->first_name,
-        'social'    => $appointment->patient->patient->patient_social_name ?? null,
-        'gender'    => $patient->gender === 'Female' ? 'Feminino' : 'Masculino',
-        'birth'     => $patient->date_of_birth ? \Carbon\Carbon::parse($patient->date_of_birth)->format('d/m/Y') : '',
-        'age'       => $patient->ageExtended($appointment->appointment_date),
-        'protocol'  => 'ATD-' . str_pad($appointment->id, 10, '0', STR_PAD_LEFT),
-        'finished'  => $appointment->status == '1',
-    ]);
+    @php
+        $srData = [
+            'name'     => $appointment->patient->first_name,
+            'social'   => $appointment->patient->patient->patient_social_name ?? null,
+            'gender'   => $patient->gender === 'Female' ? 'Feminino' : 'Masculino',
+            'birth'    => $patient->date_of_birth ? \Carbon\Carbon::parse($patient->date_of_birth)->format('d/m/Y') : '',
+            'age'      => $patient->ageExtended($appointment->appointment_date),
+            'protocol' => 'ATD-' . str_pad($appointment->id, 10, '0', STR_PAD_LEFT),
+            'finished' => $appointment->status == '1',
+        ];
+    @endphp
+    var data = {!! json_encode($srData) !!};
 
     var initials = data.name.split(' ').slice(0,2).map(function(p){ return p[0]; }).join('').toUpperCase();
 
