@@ -1,7 +1,8 @@
 <div class="s-page-header">
     <div>
-        <h4>Olá, {{ $user->first_name }} 👋</h4>
-        <div class="s-crumb">Visão geral · {{ config('app.name') }} Dashboard</div>
+        <span class="s-badge">Painel administrativo · Visão geral do dia</span>
+        <h4>Olá, <span class="s-grad">{{ $user->first_name }}</span> 👋</h4>
+        <div class="s-crumb">Bem-vindo de volta ao {{ config('app.name') }} — tudo sob controle.</div>
     </div>
 </div>
 
