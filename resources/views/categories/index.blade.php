@@ -1,85 +1,71 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Lista de Setores') }} @endsection
-
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
+@section('css') @include('partials.s-design-system') @endsection
 
 @section('content')
-    <div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0 font-size-18">
-                      {{ __('Lista de Setores') }}
-                    </h4>
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Dashboard') }}</a></li>
-                            <li class="breadcrumb-item active">
-                                {{ __('Lista de Setores') }}
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+<div class="s-page">
+    <div class="s-head">
+        <div class="s-head-title">
+            <h1>Setores</h1>
+            <p>Setores e categorias para classificação dos exames.</p>
         </div>
-        
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <a href="{{ route('categories.create') }}">
-                            <button type="button" class="btn btn-primary waves-effect waves-light mb-4">
-                                <i class="bx bx-plus font-size-16 align-middle mr-2"></i> {{ __('Novo Setor') }}
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="detail_box">
-                            <table class="table table-sm table-centered table-hover">
-                                <thead class="bg-light">
-                                    <tr>
-                                        <th width="20%">Nome</th>
-                                        <th width="20%">Abreviação</th>
-                                        <th width="10%">Status</th>
-                                        <th width="50%">Ação</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($categories as $category)
-                                        <tr>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->abbreviation }}</td>
-                                            <td>
-                                                <span class="{{ $category->is_active->getColor() }}">
-                                                    {{ $category->is_active->getName() }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('categories.edit', $category->id) }}" title="Atualizar setor"
-                                                    class="btn btn-primary btn-sm btn-rounded waves-effect waves-light mb-2 mb-md-0"
-                                                >
-                                                    <i class="mdi mdi-lead-pencil"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-center mt-3">
-                        <div class="d-flex justify-content-start">
-                            {{ $category->count() }} registros encontrados
-                        </div>
-                    </div>
-                </div>
+        <a href="{{ route('categories.create') }}" class="s-btn s-btn-primary">
+            <i class="bx bx-plus"></i> Novo Setor
+        </a>
+    </div>
+
+    @if (session()->has('success'))
+        <div class="s-alert success"><i class="bx bx-check-circle font-size-18"></i><span>{!! session()->get('success') !!}</span></div>
+        {{ session()->forget('success') }}
+    @endif
+
+    <div class="s-card">
+        <div class="s-card-head">
+            <div class="s-card-head-left">
+                <h2>Lista de Setores</h2>
+                <span class="s-count">{{ $categories->count() }}</span>
             </div>
         </div>
 
+        <div class="s-table-wrap">
+            <table class="s-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th style="width:160px;">Abreviação</th>
+                        <th style="width:130px;">Status</th>
+                        <th style="width:120px;text-align:right;">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($categories as $category)
+                        @php
+                            $statusName = $category->is_active?->getName();
+                            $isActive = $statusName && (stripos($statusName,'ativo') !== false && stripos($statusName,'inativo') === false);
+                        @endphp
+                        <tr>
+                            <td data-label="Nome" class="s-cell-main"><strong>{{ $category->name }}</strong></td>
+                            <td data-label="Abreviação"><span class="s-tag indigo">{{ $category->abbreviation }}</span></td>
+                            <td data-label="Status"><span class="s-status {{ $isActive ? 'on' : 'off' }}"><span class="s-dot"></span>{{ $statusName ?? '—' }}</span></td>
+                            <td data-label="Ação" style="text-align:right;">
+                                <div class="s-actions">
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="s-icon-btn edit" title="Atualizar"><i class="mdi mdi-pencil-outline"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="4"><div class="s-empty"><i class="bx bx-category"></i>Nenhum setor cadastrado.</div></td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        <div class="s-foot">
+            <div class="s-foot-info"><strong>{{ $categories->count() }}</strong> registros encontrados</div>
+        </div>
     </div>
+</div>
 @endsection
