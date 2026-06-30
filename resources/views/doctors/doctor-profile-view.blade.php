@@ -1,6 +1,7 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Perfil') }} @endsection
 @section('css')
+    @include('partials.s-design-system')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css') }}">
 @endsection
 
@@ -9,7 +10,7 @@
 @endsection
 
 @section('content')
-
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Perfil @endslot
         @slot('li_1') Dashboard @endslot
@@ -329,7 +330,8 @@
         </div>
     </div>
     <!-- end row -->
-    @endsection
+</div>
+@endsection
     @section('script')
     <!-- chart plugins -->
     <script src="{{ URL::asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>

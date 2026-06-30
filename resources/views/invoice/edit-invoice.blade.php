@@ -1,6 +1,7 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Update Invoice') }} @endsection
 @section('css')
+    @include('partials.s-design-system')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css') }}">
 @endsection
 @section('body')
@@ -8,6 +9,7 @@
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <!-- start page title -->
         @component('components.breadcrumb')
             @slot('title') Update Invoice @endslot
@@ -188,7 +190,8 @@
             </div>
         </div>
         <!-- end row -->
-    @endsection
+</div>
+@endsection
     @section('script')
         <script src="{{ URL::asset('assets/libs/select2/select2.min.js') }}"></script>
         <!-- form mask -->

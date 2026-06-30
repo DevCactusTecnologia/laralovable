@@ -1,3 +1,7 @@
+@section('css')
+    @include('partials.s-design-system')
+@endsection
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

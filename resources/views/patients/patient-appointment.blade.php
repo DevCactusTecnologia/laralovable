@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Lista de Atendimento') }} @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         @component('components.breadcrumb')
             @slot('title') Lista de Atendimento @endslot
             @slot('li_1') Dashboard @endslot
@@ -76,7 +81,8 @@
                 </div>
             </div>
         </div>
-    @endsection
+</div>
+@endsection
     @section('script')
         <!-- Init js-->
         <script src="{{ URL::asset('assets/js/pages/notification.init.js') }}"></script>

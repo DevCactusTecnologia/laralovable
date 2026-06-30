@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Lista de Atendimentos @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Lista de Atendimentos @endslot
         @slot('li_1') Dashboard @endslot
@@ -201,6 +206,7 @@
         @include('appointments.modal.pending.view')
         @include('appointments.modal.cancel.view')
     </div>
+</div>
 @endsection
 
 @section('script')

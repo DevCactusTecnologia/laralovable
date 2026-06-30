@@ -1,12 +1,16 @@
 @extends('layouts.master-layouts')
 @section('title'){{ __('Atualizar dados do médico') }}@endsection
 
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
-
+<div class="s-page">
     {{-- BREADCRUMB --}}
     @component('components.breadcrumb')
         @slot('title') Dashboard @endslot
@@ -250,7 +254,7 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section('script')

@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Lista de ocorrências por atendimento @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Lista de ocorrências por atendimento @endslot
         @slot('li_1') Dashboard @endslot
@@ -111,6 +116,7 @@
 
     <input type="hidden" data-js="datatable-url" value="{{ route('routine.occurrence.search') }}">
     <input type="hidden" data-js="datatable-lang-pt-br" value="{{ asset('assets/libs/datatables/lang/pt-BR.json') }}">
+</div>
 @endsection
 
 @section('css-bottom')

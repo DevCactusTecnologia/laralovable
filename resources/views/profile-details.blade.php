@@ -1,10 +1,15 @@
 @extends('layouts.master-without-nav')
 @section('title') {{ __('Completar perfil') }} @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body>
     @endsection
     @section('content')
+<div class="s-page">
         <div class="account-pages my-5 pt-5">
             <div class="container">
                 <div class="row justify-content-center">
@@ -256,7 +261,8 @@
                 </div>
             </div>
         </div>
-    @endsection
+</div>
+@endsection
     @section('script')
         <script>
             // Profile Photo

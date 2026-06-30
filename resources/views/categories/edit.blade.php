@@ -1,11 +1,16 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Editar setor') }} @endsection
 
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
+<div class="s-page">
     <div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -91,4 +96,5 @@
         </div>
 
     </div>
+</div>
 @endsection

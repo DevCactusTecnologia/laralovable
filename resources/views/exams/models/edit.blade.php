@@ -1,11 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Editar dados do modelo de laudo @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
-    
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Editar dados do modelo de laudo @endslot
         @slot('li_1') <a href="{{ url('/') }}">Dashboard</a> @endslot
@@ -110,7 +114,7 @@
 
         </div>
     </div>
-
+</div>
 @endsection
     
 @section('script')

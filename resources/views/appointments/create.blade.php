@@ -1,6 +1,7 @@
 @extends('layouts.master-layouts')
 @section('title') Criar Atendimento @endsection
 @section('css')
+    @include('partials.s-design-system')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/select2/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,6 +239,7 @@
 @endsection
 
 @section('content')
+<div class="s-page">
     <div class="sislac-novo-atendimento">
 
         {{-- HERO --}}
@@ -547,6 +549,7 @@
         @include('appointments.modal.patient.create')
         @include('appointments.modal.doctor.create')
     </div>
+</div>
 @endsection
 
 @section('script')

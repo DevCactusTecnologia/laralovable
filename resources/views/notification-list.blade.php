@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Lista de notificações') }} @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <!-- start page title -->
         @component('components.breadcrumb')
             @slot('title') Lista de notificações @endslot
@@ -100,7 +105,8 @@
                 </div>
             </div>
         </div>
-    @endsection
+</div>
+@endsection
     @section('script')
         <!-- Plugins js -->
         <script src="{{ URL::asset('assets/libs/jszip/jszip.min.js') }}"></script>

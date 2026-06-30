@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title'){{ __('Atualizar admin') }}@endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
@@ -140,7 +145,8 @@
             </div>
         </div>
         <!-- end row -->
-    @endsection
+</div>
+@endsection
     @section('script')
         <script src="{{ URL::asset('assets/libs/jquery-repeater/jquery-repeater.min.js') }}"></script>
         <!-- form init -->

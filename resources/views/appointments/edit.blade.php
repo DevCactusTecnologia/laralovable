@@ -1,6 +1,7 @@
 @extends('layouts.master-layouts')
 @section('title') Editar Atendimento @endsection
 @section('css')
+    @include('partials.s-design-system')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/select2/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
 @endsection
@@ -9,6 +10,7 @@
 @endsection
 
 @section('content')
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Editar Atendimento @endslot
         @slot('li_1') Dashboard @endslot
@@ -353,7 +355,7 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section('script')
