@@ -366,6 +366,112 @@
 @section('script')
     @if ($role == 'admin' || $role == 'doctor')
         <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+        <script>
+            (function() {
+                var el = document.querySelector("#monthly_users");
+                if (!el) return;
+
+                // limpa qualquer instância antiga (do dashboard.init.js)
+                el.innerHTML = '';
+
+                var months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+                var atend = [0,0,0,0,0,0,0,0,0,0,0,0];
+                var exam  = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+                function render() {
+                    var opts = {
+                        series: [
+                            { name: 'Atendimentos', type: 'area', data: atend },
+                            { name: 'Exames',       type: 'area', data: exam  }
+                        ],
+                        chart: {
+                            height: 340, type: 'area',
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            toolbar: { show: false },
+                            zoom: { enabled: false },
+                            dropShadow: {
+                                enabled: true, top: 6, left: 0, blur: 12,
+                                color: '#4f46e5', opacity: 0.18
+                            },
+                            animations: {
+                                enabled: true, easing: 'easeinout', speed: 700,
+                                animateGradually: { enabled: true, delay: 120 }
+                            }
+                        },
+                        colors: ['#4f46e5', '#8b5cf6'],
+                        stroke: { curve: 'smooth', width: [3, 3], lineCap: 'round' },
+                        fill: {
+                            type: 'gradient',
+                            gradient: {
+                                shadeIntensity: 1,
+                                opacityFrom: 0.45,
+                                opacityTo: 0.02,
+                                stops: [0, 95, 100]
+                            }
+                        },
+                        markers: {
+                            size: 0,
+                            strokeWidth: 2, strokeColors: '#fff',
+                            hover: { size: 7 }
+                        },
+                        dataLabels: { enabled: false },
+                        grid: {
+                            borderColor: '#eef0f4',
+                            strokeDashArray: 4,
+                            padding: { left: 10, right: 10, top: -10 },
+                            xaxis: { lines: { show: false } },
+                            yaxis: { lines: { show: true } }
+                        },
+                        xaxis: {
+                            categories: months,
+                            axisBorder: { show: false },
+                            axisTicks: { show: false },
+                            labels: {
+                                style: { colors: '#94a3b8', fontSize: '12px', fontWeight: 600 }
+                            }
+                        },
+                        yaxis: {
+                            labels: {
+                                style: { colors: '#94a3b8', fontSize: '12px' },
+                                formatter: function(v) { return Math.round(v); }
+                            }
+                        },
+                        legend: {
+                            position: 'top', horizontalAlign: 'right',
+                            fontSize: '13px', fontWeight: 600,
+                            labels: { colors: '#475569' },
+                            markers: { width: 10, height: 10, radius: 10, offsetX: -2 },
+                            itemMargin: { horizontal: 14 }
+                        },
+                        tooltip: {
+                            theme: 'light',
+                            shared: true, intersect: false,
+                            style: { fontSize: '13px', fontFamily: 'Inter, sans-serif' },
+                            y: { formatter: function(v) { return v + ''; } },
+                            marker: { show: true }
+                        }
+                    };
+                    new ApexCharts(el, opts).render();
+                }
+
+                if (window.jQuery) {
+                    jQuery.ajax({
+                        type: 'GET', url: 'getMonthlyUsersRevenue', dataType: 'json',
+                        success: function(data) {
+                            for (var i = 0; i < 12; i++) {
+                                if (data.total_appointment[i] !== undefined) {
+                                    atend.splice(data.total_appointment[i].Month - 1, 1, data.total_appointment[i].total_appointment);
+                                }
+                                if (data.total_exams[i] !== undefined) {
+                                    exam.splice(data.total_exams[i].Month - 1, 1, data.total_exams[i].total_exams);
+                                }
+                            }
+                            render();
+                        },
+                        error: function() { render(); }
+                    });
+                } else { render(); }
+            })();
+        </script>
     @endif
 @endsection
