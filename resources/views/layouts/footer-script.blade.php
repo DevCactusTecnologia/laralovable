@@ -18,4 +18,5 @@
     @endif
 </script>
 @include('partials.s-phase1')
+@include('partials.s-phase2')
 @yield('script-bottom')
