@@ -76,6 +76,16 @@
                     </form>
                 </div>
             </div>
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item noti-icon waves-effect" id="s-search-trigger" onclick="sOpenSearch()" title="Busca global (Ctrl+K)" aria-label="Busca global">
+                    <i class="mdi mdi-magnify"></i>
+                </button>
+            </div>
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item noti-icon waves-effect" id="s-dark-toggle" onclick="sToggleDark()" title="Alternar tema claro/escuro" aria-label="Alternar tema">
+                    <i class="mdi mdi-weather-night"></i>
+                </button>
+            </div>
             <div class="dropdown d-none d-lg-inline-block ml-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
                     <i class="bx bx-fullscreen"></i>
