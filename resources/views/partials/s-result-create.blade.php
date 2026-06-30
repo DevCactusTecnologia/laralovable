@@ -190,12 +190,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // ---- 2. Header do paciente reconstruído ----
     @php
+        $srPatient = isset($patient) ? $patient : \App\Models\Patient::firstWhere('user_id', $appointment->patient->id);
         $srData = [
             'name'     => $appointment->patient->first_name,
             'social'   => $appointment->patient->patient->patient_social_name ?? null,
-            'gender'   => $patient->gender === 'Female' ? 'Feminino' : 'Masculino',
-            'birth'    => $patient->date_of_birth ? \Carbon\Carbon::parse($patient->date_of_birth)->format('d/m/Y') : '',
-            'age'      => $patient->ageExtended($appointment->appointment_date),
+            'gender'   => $srPatient && $srPatient->gender === 'Female' ? 'Feminino' : 'Masculino',
+            'birth'    => $srPatient && $srPatient->date_of_birth ? \Carbon\Carbon::parse($srPatient->date_of_birth)->format('d/m/Y') : '',
+            'age'      => $srPatient ? $srPatient->ageExtended($appointment->appointment_date) : '',
             'protocol' => 'ATD-' . str_pad($appointment->id, 10, '0', STR_PAD_LEFT),
             'finished' => $appointment->status == '1',
         ];
