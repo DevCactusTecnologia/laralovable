@@ -26,7 +26,6 @@
 </div> --}}
 <!-- Begin page -->
 <div id="layout-wrapper">
-    @include('layouts.top-hor')
     @include('layouts.hor-menu')
     <!-- ============================================================== -->
     <!-- Start right Content here -->
@@ -45,10 +44,6 @@
     <!-- ============================================================== -->
 </div>
 <!-- END wrapper -->
-
-<!-- Right Sidebar -->
-@include('layouts.right-sidebar')
-<!-- END Right Sidebar -->
 
 @include('layouts.footer-script')
 </body>
