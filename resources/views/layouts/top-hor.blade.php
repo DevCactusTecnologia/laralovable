@@ -27,7 +27,7 @@
             </div>
             <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
                 data-toggle="collapse" data-target="#topnav-menu-content">
-                <i class="fa fa-fw fa-bars"></i>
+                <i class="mdi mdi-menu"></i>
             </button>
         </div>
         <div class="d-flex">
@@ -110,7 +110,7 @@
                                         <h6 class="mt-0 mb-1">{{ $item->user->first_name .' '.$item->user->last_name  }}</h6>
                                         <div class="font-size-12 text-muted">
                                             <p class="mb-1">{{$item->title  }}</p>
-                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> {{ $item->created_at->diffForHumans() }} </p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-time-four-outline"></i> {{ $item->created_at->diffForHumans() }} </p>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="p-2 border-top">
                         <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="{{ url('/notification-list') }}">
-                            <i class="mdi mdi-arrow-right-circle mr-1"></i> {{ __("Veja mais..") }}
+                            <i class="mdi mdi-arrow-right-circle-outline mr-1"></i> {{ __("Veja mais..") }}
                         </a>
                     </div>
                 </div>

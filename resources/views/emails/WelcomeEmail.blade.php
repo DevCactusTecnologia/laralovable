@@ -50,7 +50,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>© {{ date('Y') }} {{ config('app.name'); }}. Crafted with
-                            <i class="mdi mdi-heart text-danger"></i> {{ __("by Themesbrand") }}</p>
+                            <i class="mdi mdi-heart-pulse text-danger"></i> {{ __("by Themesbrand") }}</p>
                     </div>
                 </div>
             </div>

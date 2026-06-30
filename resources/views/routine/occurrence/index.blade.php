@@ -42,7 +42,7 @@
                             <div>
                                 <div class="font-size-13 invisible mb-0">.</div>
                                 <div class="bg-primary font-size-15 px-2 py-1 rounded-lg text-white">
-                                    <i class="mdi mdi-alert"></i>
+                                    <i class="mdi mdi-alert-circle-outline"></i>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                             <div>
                                 <div class="font-size-13 invisible mb-0">.</div>
                                 <div class="bg-primary font-size-15 px-2 py-1 rounded-lg text-white">
-                                    <i class="mdi mdi-forum"></i>
+                                    <i class="mdi mdi-forum-outline"></i>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                             <div>
                                 <div class="font-size-13 invisible mb-0">.</div>
                                 <div class="bg-primary font-size-15 px-2 py-1 rounded-lg text-white">
-                                    <i class="mdi mdi-check-circle"></i>
+                                    <i class="mdi mdi-check-circle-outline"></i>
                                 </div>
                             </div>
                         </div>

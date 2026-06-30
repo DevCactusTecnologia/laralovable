@@ -187,7 +187,7 @@
                         <a href="{{ route('exams.models.create', $exam->id) }}" 
                             class="btn btn-sm btn-primary rounded-pill px-3 py-2"
                         >
-                            <i class="mdi mdi-plus fs-2"></i>
+                            <i class="mdi mdi-plus-circle-outline fs-2"></i>
                             Novo laudo
                         </a>
                     </div>
@@ -211,7 +211,7 @@
                                         <a href="{{ route('exams.models.edit', [$exam->id, $model->id]) }}" title="Editar modelo"
                                             class="btn btn-primary btn-sm btn-rounded waves-effect mb-2 mb-md-0"
                                         >
-                                            <i class="mdi mdi-lead-pencil"></i>
+                                            <i class="mdi mdi-pencil-box-outline"></i>
                                         </a>
                                     </td>
                                 </tr>

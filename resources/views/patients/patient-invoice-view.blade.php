@@ -26,7 +26,7 @@
                     </button>
                 </a>
                 <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light mb-4">
-                    <i class="fa fa-print"></i>
+                    <i class="mdi mdi-printer-outline"></i>
                 </a>
             </div>
         </div>
@@ -46,16 +46,16 @@
                                 <address>
                                     <strong>{{ __('Patient Details') }}</strong><br>
                                     {{ $invoice_detail->patient->first_name . ' ' . $invoice_detail->patient->last_name }}<br>
-                                    <i class="mdi mdi-phone"></i> {{ $invoice_detail->patient->mobile }}<br>
-                                    <i class="mdi mdi-email"></i> {{ $invoice_detail->patient->email }}<br>
+                                    <i class="mdi mdi-phone-outline"></i> {{ $invoice_detail->patient->mobile }}<br>
+                                    <i class="mdi mdi-email-outline"></i> {{ $invoice_detail->patient->email }}<br>
                                 </address>
                             </div>
                             <div class="col-3">
                                 <address>
                                     <strong>{{ __('Doctor Details') }}</strong><br>
                                     {{ $invoice_detail->doctor->first_name . ' ' . $invoice_detail->doctor->last_name }}<br>
-                                    <i class="mdi mdi-phone"></i> {{ $invoice_detail->doctor->mobile }}<br>
-                                    <i class="mdi mdi-email"></i> {{ $invoice_detail->doctor->email }}<br>
+                                    <i class="mdi mdi-phone-outline"></i> {{ $invoice_detail->doctor->mobile }}<br>
+                                    <i class="mdi mdi-email-outline"></i> {{ $invoice_detail->doctor->email }}<br>
                                 </address>
                             </div>
                             <div class="col-3">

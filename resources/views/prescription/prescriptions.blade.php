@@ -78,7 +78,7 @@
                                 <div class="s-actions">
                                     <a href="{{ url('prescription/' . $prescription->id) }}" class="s-icon-btn view" title="Visualizar"><i class="mdi mdi-eye-outline"></i></a>
                                     @if ($role == 'doctor')
-                                        <a href="{{ url('prescription/' . $prescription->id . '/edit') }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-pencil-outline"></i></a>
+                                        <a href="{{ url('prescription/' . $prescription->id . '/edit') }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-square-edit-outline"></i></a>
                                         <a href="javascript:void(0)" class="s-icon-btn del" id="delete-prescription" data-id="{{ $prescription->id }}" title="Excluir"><i class="mdi mdi-trash-can-outline"></i></a>
                                     @endif
                                     @if ($role != 'patient')

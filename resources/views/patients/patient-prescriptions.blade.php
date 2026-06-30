@@ -92,7 +92,7 @@
                                                     <button type="button"
                                                         class="btn btn-primary btn-sm btn-rounded waves-effect waves-light"
                                                         title="View item">
-                                                        <i class="mdi mdi-eye"></i>
+                                                        <i class="mdi mdi-eye-outline"></i>
                                                     </button>
                                                 </a>
                                             </td>

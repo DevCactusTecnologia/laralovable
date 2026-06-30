@@ -81,7 +81,7 @@
                             <td data-label="Opções" style="text-align:right;">
                                 <div class="s-actions">
                                     <a href="{{ url('invoice/' . $invoice->id) }}" class="s-icon-btn view" title="Visualizar"><i class="mdi mdi-eye-outline"></i></a>
-                                    <a href="{{ url('invoice/' . $invoice->id . '/edit') }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-pencil-outline"></i></a>
+                                    <a href="{{ url('invoice/' . $invoice->id . '/edit') }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-square-edit-outline"></i></a>
                                     @if ($role != 'patient')
                                         <a href="javascript:void(0)" class="s-icon-btn mail send-mail" title="Enviar e-mail" data-id="{{ $invoice->id }}"><i class="mdi mdi-email-outline"></i></a>
                                     @endif

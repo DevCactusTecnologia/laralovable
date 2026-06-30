@@ -3,7 +3,7 @@
             <div data-simplebar class="h-100">
                 <div class="rightbar-title px-3 py-4">
                     <a href="javascript:void(0);" class="right-bar-toggle float-right">
-                        <i class="mdi mdi-close noti-icon"></i>
+                        <i class="mdi mdi-close-circle-outline noti-icon"></i>
                     </a>
                     <h5 class="m-0">{{ __("Definições") }}</h5>
                 </div>

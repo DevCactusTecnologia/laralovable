@@ -70,7 +70,7 @@
                             <td data-label="Status"><span class="s-status {{ $isActive ? 'on' : 'off' }}"><span class="s-dot"></span>{{ $statusName ?? '—' }}</span></td>
                             <td data-label="Ação" style="text-align:right;">
                                 <div class="s-actions">
-                                    <a href="{{ route('exams.edit', $exam->id) }}" class="s-icon-btn edit" title="Atualizar"><i class="mdi mdi-pencil-outline"></i></a>
+                                    <a href="{{ route('exams.edit', $exam->id) }}" class="s-icon-btn edit" title="Atualizar"><i class="mdi mdi-square-edit-outline"></i></a>
                                 </div>
                             </td>
                         </tr>

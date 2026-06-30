@@ -27,7 +27,7 @@
                     </button>
                 </a>
                 <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light mb-4">
-                    <i class="fa fa-print"></i>
+                    <i class="mdi mdi-printer-outline"></i>
                 </a>
             </div>
         </div>
@@ -47,16 +47,16 @@
                                 <address>
                                     <strong>{{ __('Dr(a)') }}</strong><br>
                                     {{ $user_details->appointment->doctor->first_name . ' ' . $user_details->appointment->doctor->last_name }}<br>
-                                    <i class="mdi mdi-phone"></i> {{ $user_details->appointment->doctor->mobile }}<br>
-                                    <i class="mdi mdi-email"></i> {{ $user_details->appointment->doctor->email }}<br>
+                                    <i class="mdi mdi-phone-outline"></i> {{ $user_details->appointment->doctor->mobile }}<br>
+                                    <i class="mdi mdi-email-outline"></i> {{ $user_details->appointment->doctor->email }}<br>
                                 </address>
                             </div>
                             <div class="col-4">
                                 <address>
                                     <strong>{{ __('Paciente') }}</strong><br>
                                     {{ $user_details->patient->first_name . ' ' . $user_details->patient->last_name }}<br>
-                                    <i class="mdi mdi-phone"></i> {{ $user_details->patient->mobile }}<br>
-                                    <i class="mdi mdi-email"></i> {{ $user_details->patient->email }}<br>
+                                    <i class="mdi mdi-phone-outline"></i> {{ $user_details->patient->mobile }}<br>
+                                    <i class="mdi mdi-email-outline"></i> {{ $user_details->patient->email }}<br>
                                 </address>
                             </div>
                             <div class="col-3">

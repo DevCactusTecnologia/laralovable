@@ -38,7 +38,7 @@
                         <div class="col-md-2 mb-4">
                             <label class="form-label invisible">.</label>
                             <button type="submit" class="btn btn-primary form-control" data-submit-production-exam>
-                                <i class="fa fa-search"></i>
+                                <i class="mdi mdi-magnify"></i>
                                 <span class="ml-2">Buscar</span>
                             </button>
                         </div>

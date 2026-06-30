@@ -35,7 +35,7 @@
                         <div class="col-md-2 mb-4">
                             <label class="form-label invisible">.</label>
                             <button type="submit" id="searchPatient" class="btn btn-primary form-control">
-                                <i class="fa fa-search"></i>
+                                <i class="mdi mdi-magnify"></i>
                                 <span class="ml-2">Buscar</span>
                             </button>
                         </div>
