@@ -27,12 +27,12 @@
             {{-- <a href="{{ route('appointments.result.print', $appointment->id) }}" 
                 class="btn btn-success text-white ml-2 mb-4 py-0" target="_blank"
             >
-                <i class="mdi mdi-printer font-size-24 align-middle"></i>
+                <i class="mdi mdi-printer-outline font-size-24 align-middle"></i>
             </a> --}}
             <a href="{{ route('appointments.result.pdf', $appointment->id) }}" 
                 class="btn btn-success text-white ml-2 mb-4 py-0" target="_blank"
             >
-                <i class="mdi mdi-printer font-size-24 align-middle"></i>
+                <i class="mdi mdi-printer-outline font-size-24 align-middle"></i>
             </a>
         </div>
     </div>

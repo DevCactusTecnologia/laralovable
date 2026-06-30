@@ -108,7 +108,7 @@
                                     @if ($appointment->status == '1')
                                         <a href="{{ route('appointments.result.pdf', $appointment->protocol) }}"
                                             style="color: #10b981;" title="Imprimir resultado" target="_blank">
-                                            <i class="mdi mdi-printer font-size-20 align-middle"></i>
+                                            <i class="mdi mdi-printer-outline font-size-20 align-middle"></i>
                                         </a>
                                     @endif
                                 </td>

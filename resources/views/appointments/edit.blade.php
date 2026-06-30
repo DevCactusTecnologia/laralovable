@@ -142,7 +142,7 @@
                                     data-date-autoclose="true" autocomplete="off" data-date-format="dd/mm/yyyy"
                                 >
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                    <span class="input-group-text"><i class="mdi mdi-calendar-month-outline"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -204,13 +204,13 @@
                                             <td class="text-center">
                                                 @if ($exam->pivot->status == '0')
                                                     <span style="color: #efc681;" title="Pendente">
-                                                        <i class="mdi mdi-information-outline font-size-22 align-middle"></i>
+                                                        <i class="mdi mdi-information-slab-circle-outline font-size-22 align-middle"></i>
                                                     </span>
                                                 @endif
 
                                                 @if ($exam->pivot->status == '1')
                                                     <span style="color: #33c38e;" title="Finalizado">
-                                                        <i class="mdi mdi-checkbox-marked-circle font-size-22 align-middle"></i>
+                                                        <i class="mdi mdi-check-circle-outline font-size-22 align-middle"></i>
                                                     </span>
                                                 @endif
 
@@ -229,7 +229,7 @@
                                                     <span title="Cancelado: {{ $exam->pivot->observation ?: 'NÃO INFORMADO' }}"
                                                         style="color: #ff0000;"
                                                     >
-                                                        <i class="mdi mdi-cancel font-size-22 align-middle"></i>
+                                                        <i class="mdi mdi-close-circle-outline font-size-22 align-middle"></i>
                                                     </span>
                                                 @endif
                                             </td>

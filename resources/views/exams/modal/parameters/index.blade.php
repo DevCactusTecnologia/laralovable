@@ -51,7 +51,7 @@
                                             class="btn btn-primary btn-sm btn-rounded waves-effect waves-light mb-2 mb-md-0 updateParameter"
                                             data-toggle="modal" data-target="#listParameterModal"
                                             title="Atualizar Parâmetro" data-backdrop="static" data-keyboard="false">
-                                            <i class="mdi mdi-lead-pencil"></i>
+                                            <i class="mdi mdi-pencil-box-outline"></i>
                                         </button>
                                     </th>
                                 </tr>

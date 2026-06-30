@@ -83,7 +83,7 @@
                                                         </div>
                                                     @endif
                                                     <div class="font-size-12 text-muted">
-                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i>
+                                                        <p class="mb-0"><i class="mdi mdi-clock-time-four-outline"></i>
                                                             {{ $item->created_at->diffForHumans() }}
                                                         </p>
                                                     </div>

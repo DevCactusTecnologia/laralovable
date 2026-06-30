@@ -52,12 +52,12 @@
                                         data-toggle="modal" data-target="#listFilterModal"
                                         title="Atualizar Filtro"
                                         >
-                                        <i class="mdi mdi-lead-pencil"></i>
+                                        <i class="mdi mdi-pencil-box-outline"></i>
                                     </button>
                                     <button type="button" onclick="deleteFilter({{$filter->id}})"
                                         class="btn btn-danger btn-sm btn-rounded waves-effect waves-light mb-2 mb-md-0"
                                         title="Deletar Filtro" data-backdrop="static" data-keyboard="false">
-                                        <i class="mdi mdi-trash-can"></i>
+                                        <i class="mdi mdi-trash-can-outline"></i>
                                     </button>
                                 </th>
                             </tr>

@@ -111,12 +111,12 @@
                                 <td>
                                     <a href="{{ route('appointments.edit', $appointment->protocol) }}"
                                         class="s-btn-primary" style="padding: 6px 10px; font-size: 12px;" title="Ver atendimento">
-                                        <i class="mdi mdi-eye-plus align-middle"></i>
+                                        <i class="mdi mdi-eye-plus-outline align-middle"></i>
                                     </a>
                                     @if ($appointment->status == '1')
                                         <a href="{{ route('appointments.result.pdf', $appointment->protocol) }}"
                                             style="color: #10b981; margin-left: 6px;" title="Imprimir resultado" target="_blank">
-                                            <i class="mdi mdi-printer font-size-20 align-middle"></i>
+                                            <i class="mdi mdi-printer-outline font-size-20 align-middle"></i>
                                         </a>
                                     @endif
                                 </td>

@@ -8,7 +8,7 @@
                     <h6 class="mt-0 mb-1">{{$item->user->first_name }}</h6>
                     <div class="font-size-12 text-muted">
                         <p class="mb-1">{{$item->title }}</p>
-                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> {{ $item->created_at->diffForHumans() }}</p>
+                        <p class="mb-0"><i class="mdi mdi-clock-time-four-outline"></i> {{ $item->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
             </div>

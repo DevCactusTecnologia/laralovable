@@ -43,7 +43,7 @@
                             <button type="submit" data-js="searchProductionByBiomedical" 
                                 class="btn btn-primary form-control"
                             >
-                                <i class="fa fa-search"></i>
+                                <i class="mdi mdi-magnify"></i>
                                 <span class="ml-2">Buscar</span>
                             </button>
                         </div>

@@ -128,7 +128,7 @@
                             <a href="{{ route('appointments.result.show', $appointment->id) }}"
                                 class="btn btn-primary px-2 py-0 mr-2" title="Visualizar resultado dos exames"
                             >
-                                <i class="mdi mdi-eye font-size-24 align-middle"></i>
+                                <i class="mdi mdi-eye-outline font-size-24 align-middle"></i>
                             </a>
                         @endif
 
@@ -175,7 +175,7 @@
                                     @if ($exam->pivot->status == '0')
                                         <div class="col-3">
                                             <span style="color: #efc681;">
-                                                <i class="mdi mdi-information-outline font-size-22 align-middle"></i>
+                                                <i class="mdi mdi-information-slab-circle-outline font-size-22 align-middle"></i>
                                             </span>
                                         </div>
                                     @endif
@@ -183,7 +183,7 @@
                                     @if ($exam->pivot->status == '1')
                                         <div class="col-3">
                                             <span style="color: #33c38e;">
-                                                <i class="mdi mdi-checkbox-marked-circle font-size-22 align-middle"></i>
+                                                <i class="mdi mdi-check-circle-outline font-size-22 align-middle"></i>
                                             </span>
                                         </div>
                                     @endif
@@ -191,7 +191,7 @@
                                     @if ($exam->pivot->status == '2')
                                         <div class="col-3">
                                             <span style="color: #ff0000;">
-                                                <i class="mdi mdi-cancel font-size-22 align-middle"></i>
+                                                <i class="mdi mdi-close-circle-outline font-size-22 align-middle"></i>
                                             </span>
                                         </div>
                                     @endif

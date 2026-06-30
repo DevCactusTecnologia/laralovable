@@ -148,7 +148,7 @@
                 <button type="button" class="btn my-0 py-0 mx-0 px-0" data-toggle="modal" data-target="#restore-{{ $exam->id }}"
                     style="font-weight: 600; color: #000;" title="Restaurar exame {{ $exam->name }}"
                 >
-                    <i class="mdi mdi-delete-restore font-size-24 align-middle"></i>
+                    <i class="mdi mdi-restore font-size-24 align-middle"></i>
                 </button>
             </div>
         </div>
@@ -162,7 +162,7 @@
                 <button type="button" class="btn my-0 py-0 mx-0 px-0" data-toggle="modal" data-target="#restore-{{ $exam->id }}"
                     style="font-weight: 600; color: #000;" title="Restaurar exame {{ $exam->name }}"
                 >
-                    <i class="mdi mdi-delete-restore font-size-24 align-middle"></i>
+                    <i class="mdi mdi-restore font-size-24 align-middle"></i>
                 </button>
             </div>
         </div>
@@ -178,7 +178,7 @@
                         
                         <div class="d-md-flex flex-column justify-content-center">
                             <div class="text-center">
-                                <i class="mdi mdi-delete-restore mdi-25px align-middle text-secondary" style="font-size: 90px;"></i>
+                                <i class="mdi mdi-restore mdi-25px align-middle text-secondary" style="font-size: 90px;"></i>
                             </div>
                             <div class="text-center mb-4" style="margin-top: -20px;">
                                 Deseja realmente restaurar o exame <strong>{{ $exam->name }}</strong>?

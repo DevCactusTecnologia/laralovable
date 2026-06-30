@@ -264,7 +264,7 @@
                 <a href="{{ route('appointments.print', session()->get('appointment_id')) }}" target="_blank"
                     class="sislac-btn-primary ml-2" style="padding:6px 14px;font-size:13px;"
                 >
-                    <i class="mdi mdi-printer"></i> Imprimir
+                    <i class="mdi mdi-printer-outline"></i> Imprimir
                 </a>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -375,7 +375,7 @@
                                 data-date-format="dd/mm/yyyy" value="{{ old('appointment_date', date('d/m/Y')) }}"
                                 data-date-autoclose="true" autocomplete="off">
                             <div class="input-group-append">
-                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                <span class="input-group-text"><i class="mdi mdi-calendar-month-outline"></i></span>
                             </div>
                         </div>
                     </div>

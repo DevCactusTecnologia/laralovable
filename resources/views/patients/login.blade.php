@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     <div class="mt-5 text-center">
-                        <p>© {{ date('Y') }} {{ config('app.name'); }}. Feito com <i class="mdi mdi-heart text-danger"></i> {{ __("by DevCactus") }}</p>
+                        <p>© {{ date('Y') }} {{ config('app.name'); }}. Feito com <i class="mdi mdi-heart-pulse text-danger"></i> {{ __("by DevCactus") }}</p>
                     </div>
                 </div>
             </div>

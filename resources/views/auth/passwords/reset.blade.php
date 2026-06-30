@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="home-btn d-none d-sm-block">
-        <a href="{{ url('login') }}" class="text-dark"><i class="fas fa-home h2"></i></a>
+        <a href="{{ url('login') }}" class="text-dark"><i class="mdi mdi-home-outline h2"></i></a>
     </div>
     <div class="account-pages my-5 pt-5">
         <div class="container">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>{{ __("Lembrou da senha ?") }} <a href="{{ url('login') }}" class="font-weight-medium text-primary"> {{ __("Faça login aqui") }}</a></p>
-                        <p>© {{ date('Y') }} {{ config('app.name'); }}. Feito com <i class="mdi mdi-heart text-danger"></i> {{ __("by DevCactus") }}</p>
+                        <p>© {{ date('Y') }} {{ config('app.name'); }}. Feito com <i class="mdi mdi-heart-pulse text-danger"></i> {{ __("by DevCactus") }}</p>
                     </div>
                 </div>
             </div>

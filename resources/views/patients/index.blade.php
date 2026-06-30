@@ -75,7 +75,7 @@
                             <td data-label="Ações" style="text-align:right;">
                                 <div class="s-actions">
                                     <a href="{{ route('patients.show', $item->id) }}" class="s-icon-btn view" title="Visualizar"><i class="mdi mdi-eye-outline"></i></a>
-                                    <a href="{{ route('patients.edit', $item->id) }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-pencil-outline"></i></a>
+                                    <a href="{{ route('patients.edit', $item->id) }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-square-edit-outline"></i></a>
                                 </div>
                             </td>
                         </tr>

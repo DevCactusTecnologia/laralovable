@@ -68,7 +68,7 @@
                                 <div class="s-actions">
                                     <a href="{{ route('biomedicals.show', $biomedical->id) }}" class="s-icon-btn view" title="Visualizar"><i class="mdi mdi-eye-outline"></i></a>
                                     @if ($role == 'admin')
-                                        <a href="{{ route('biomedicals.edit', $biomedical->id) }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-pencil-outline"></i></a>
+                                        <a href="{{ route('biomedicals.edit', $biomedical->id) }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-square-edit-outline"></i></a>
                                     @endif
                                 </div>
                             </td>

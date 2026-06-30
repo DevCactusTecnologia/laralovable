@@ -160,13 +160,13 @@
                     <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#AppointmentList" role="tab">
-                                <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                                <span class="d-block d-sm-none"><i class="mdi mdi-account-outline"></i></span>
                                 <span class="d-none d-sm-block">{{ __('Lista de atendimentos') }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#Invoices" role="tab">
-                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                <span class="d-block d-sm-none"><i class="mdi mdi-cog-outline"></i></span>
                                 <span class="d-none d-sm-block">{{ __('Faturas') }}</span>
                             </a>
                         </li>
