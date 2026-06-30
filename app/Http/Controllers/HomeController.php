@@ -115,4 +115,51 @@ class HomeController extends Controller
             FROM appointment_occurrences AS occurrences"
         )[0];
     }
+
+    /**
+     * Computes the operational flow counters by reading the latest stage of
+     * each (appointment, exam) pair from routine_traceabilities.
+     * 
+     * Stages (App\Enums\Routine\StageEnum):
+     *   1 = Cadastro/Coleta   2 = Inserir Resultado   3 = Conferido
+     *   4 = Impressão/Liberado   5 = Cancelado   6 = Edição   7 = Restaurado
+     */
+    private function getOperationalFlow(): stdClass
+    {
+        try {
+            $latestStage = "(
+                SELECT t.appointment_id, t.exam_id, t.stage_id, t.registered_at
+                FROM routine_traceabilities t
+                INNER JOIN (
+                    SELECT appointment_id, exam_id, MAX(id) AS max_id
+                    FROM routine_traceabilities
+                    GROUP BY appointment_id, exam_id
+                ) latest
+                ON latest.max_id = t.id
+            ) AS flow";
+
+            $row = DB::select(
+                "SELECT
+                    SUM(IF(flow.stage_id = 1 AND DATE(flow.registered_at) = DATE(NOW() - INTERVAL 3 HOUR), 1, 0)) AS collected_today,
+                    SUM(IF(flow.stage_id IN (2, 6), 1, 0)) AS in_analysis,
+                    SUM(IF(flow.stage_id = 3, 1, 0)) AS results_available,
+                    SUM(IF(flow.stage_id = 4 AND DATE(flow.registered_at) = DATE(NOW() - INTERVAL 3 HOUR), 1, 0)) AS released_today
+                FROM {$latestStage}"
+            )[0];
+
+            return (object)[
+                'collected_today' => (int)($row->collected_today ?? 0),
+                'in_analysis' => (int)($row->in_analysis ?? 0),
+                'results_available' => (int)($row->results_available ?? 0),
+                'released_today' => (int)($row->released_today ?? 0),
+            ];
+        } catch (\Throwable $e) {
+            return (object)[
+                'collected_today' => 0,
+                'in_analysis' => 0,
+                'results_available' => 0,
+                'released_today' => 0,
+            ];
+        }
+    }
 }
