@@ -76,27 +76,27 @@
             <div class="s-flow">
                 <div class="s-flow-row">
                     <span class="s-flow-ic"><i class="bx bx-test-tube"></i></span>
-                    <div class="s-flow-text">Coletas realizadas</div>
-                    <span class="s-pill s-pill-ok">Concluído</span>
-                    <span class="s-flow-val">{{ $today_appointment_exam_total }}</span>
+                    <div class="s-flow-text">Coletas realizadas hoje</div>
+                    <span class="s-pill s-pill-ok">Coletado</span>
+                    <span class="s-flow-val">{{ $flow_collected_today ?? 0 }}</span>
                 </div>
                 <div class="s-flow-row">
                     <span class="s-flow-ic s-flow-ic-warn"><i class="bx bx-loader-circle"></i></span>
                     <div class="s-flow-text">Análises em andamento</div>
                     <span class="s-pill s-pill-warn">Em processo</span>
-                    <span class="s-flow-val">{{ $pending_appointment_exam_total }}</span>
+                    <span class="s-flow-val">{{ $flow_in_analysis ?? 0 }}</span>
                 </div>
                 <div class="s-flow-row">
                     <span class="s-flow-ic"><i class="bx bx-file"></i></span>
                     <div class="s-flow-text">Resultados disponíveis</div>
-                    <span class="s-pill s-pill-soft">Aguardando</span>
-                    <span class="s-flow-val">{{ $pending_appointment_total }}</span>
+                    <span class="s-pill s-pill-soft">Conferido</span>
+                    <span class="s-flow-val">{{ $flow_results_available ?? 0 }}</span>
                 </div>
                 <div class="s-flow-row">
                     <span class="s-flow-ic s-flow-ic-dark"><i class="bx bx-check-circle"></i></span>
                     <div class="s-flow-text">Liberados hoje</div>
                     <span class="s-pill s-pill-ok">Concluído</span>
-                    <span class="s-flow-val">{{ max($today_appointment_total - $pending_appointment_total, 0) }}</span>
+                    <span class="s-flow-val">{{ $flow_released_today ?? 0 }}</span>
                 </div>
             </div>
         </div>
