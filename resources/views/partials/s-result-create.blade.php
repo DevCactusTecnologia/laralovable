@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function(){
             + '<div class="sr-actions">'
             +    '<a href="#" class="sr-btn sr-btn-whats"><i class="mdi mdi-whatsapp"></i> Enviar WhatsApp</a>'
             +    '<a href="#" class="sr-btn sr-btn-more"><i class="mdi mdi-dots-horizontal"></i> Mais ações</a>'
-            +    '<a href="' + @json(route('appointments.result.show', $appointment->id)) + '" class="sr-btn sr-btn-print"><i class="mdi mdi-printer-outline"></i> Imprimir todos</a>'
+            +    '<a href="' + @json(route('appointments.result.print', $appointment->id)) + '" target="_blank" class="sr-btn sr-btn-print"><i class="mdi mdi-printer-outline"></i> Imprimir todos</a>'
             + '</div>';
         contentCol.insertBefore(header, contentCol.firstChild);
     }
