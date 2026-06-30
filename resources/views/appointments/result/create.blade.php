@@ -8,6 +8,7 @@
 
 @section('content')
 <div class="s-page">
+    @include('partials.s-result-create')
     @component('components.breadcrumb')
         @slot('title') INSERIR RESULTADO @endslot
         @slot('li_1') Dashboard @endslot
