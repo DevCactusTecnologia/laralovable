@@ -284,22 +284,26 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
 
-        // botão "Imprimir exame" injetado no item ativo
+        // botão "Imprimir exame" injetado APÓS o item ativo (anchors aninhados são inválidos)
         function syncPrintButton(){
             leftCol.querySelectorAll('.sr-print-inline').forEach(function(b){ b.remove(); });
             var active = leftCol.querySelector('.list-group-item.active');
             if (!active) return;
             var examId = active.id.replace('list-','').replace('-list','');
             var url = @json(url('/')) + '/appointments/' + @json($appointment->id) + '/exams/' + examId + '/result';
-            var btn = document.createElement('a');
+            var btn = document.createElement('button');
+            btn.type = 'button';
             btn.className = 'sr-print-inline';
-            btn.target = '_blank';
-            btn.href = url;
             btn.innerHTML = '<i class="mdi mdi-printer-outline"></i> Imprimir exame';
-            active.appendChild(btn);
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(url, '_blank');
+            });
+            active.parentNode.insertBefore(btn, active.nextSibling);
         }
         syncPrintButton();
-        items.forEach(function(it){ it.addEventListener('click', function(){ setTimeout(syncPrintButton, 50); }); });
+        items.forEach(function(it){ it.addEventListener('click', function(){ setTimeout(syncPrintButton, 80); }); });
     }
 });
 })();
