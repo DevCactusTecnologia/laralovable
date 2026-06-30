@@ -180,6 +180,161 @@
         .sislac-dashboard .s-pill-warn { background: #fef3c7; color: #92400e; }
         .sislac-dashboard .s-pill-ok   { background: #d1fae5; color: #065f46; }
         .sislac-dashboard .s-pill-bad  { background: #fee2e2; color: #991b1b; }
+        .sislac-dashboard .s-pill-soft { background: #f1f5f9; color: #475569; }
+
+        /* ===== Botões extras ===== */
+        .sislac-dashboard .s-btn-dark {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #0f172a; color: #fff; border: none;
+            padding: 11px 18px; border-radius: 999px;
+            font-size: 13.5px; font-weight: 600;
+            box-shadow: 0 8px 20px rgba(15,23,42,.18);
+            transition: all .2s ease;
+        }
+        .sislac-dashboard .s-btn-dark:hover { background: #1e293b; color: #fff; transform: translateY(-1px); }
+        .sislac-dashboard .s-btn-glass {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,.14); color: #fff;
+            border: 1px solid rgba(255,255,255,.28);
+            padding: 11px 18px; border-radius: 999px;
+            font-size: 13.5px; font-weight: 600;
+            backdrop-filter: blur(8px);
+            transition: all .2s ease;
+        }
+        .sislac-dashboard .s-btn-glass:hover { background: rgba(255,255,255,.22); color: #fff; }
+
+        /* ===== Banner hero (estilo appsislac) ===== */
+        .sislac-dashboard .s-banner {
+            position: relative; overflow: hidden;
+            border-radius: var(--s-radius);
+            background: linear-gradient(120deg, #5b50e8 0%, #6d5cf0 45%, #8b5cf6 100%);
+            color: #fff;
+            padding: 36px 36px 32px;
+            min-height: 220px;
+            box-shadow: 0 20px 50px -24px rgba(79,70,229,.55);
+        }
+        .sislac-dashboard .s-banner-content { position: relative; z-index: 2; max-width: 620px; }
+        .sislac-dashboard .s-banner-chip {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.28);
+            color: #fff; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .12em;
+            padding: 5px 12px; border-radius: 999px;
+            backdrop-filter: blur(6px);
+        }
+        .sislac-dashboard .s-banner h3 {
+            color: #fff; font-weight: 800; letter-spacing: -.02em;
+            font-size: clamp(22px, 2.6vw, 32px);
+            margin: 16px 0 8px; line-height: 1.15;
+        }
+        .sislac-dashboard .s-banner p { color: rgba(255,255,255,.85); margin: 0 0 22px; font-size: 14px; }
+        .sislac-dashboard .s-banner-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        .sislac-dashboard .s-banner-art {
+            position: absolute; inset: 0 0 0 auto; width: 55%;
+            background:
+                radial-gradient(60% 80% at 80% 30%, rgba(255,255,255,.35), transparent 60%),
+                repeating-linear-gradient(115deg, rgba(255,255,255,.08) 0 2px, transparent 2px 18px);
+            mask-image: linear-gradient(90deg, transparent, #000 35%);
+            pointer-events: none;
+        }
+
+        /* ===== Stat cards estilo appsislac (com arte) ===== */
+        .sislac-dashboard .s-stat-2 {
+            position: relative; overflow: hidden;
+            padding: 22px 22px 24px;
+            min-height: 158px;
+        }
+        .sislac-dashboard .s-stat-2 .s-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .1em; color: var(--s-muted); margin: 0 0 14px;
+        }
+        .sislac-dashboard .s-stat-2 .s-big {
+            font-size: 34px; font-weight: 800; color: var(--s-ink);
+            margin: 0; letter-spacing: -.02em; line-height: 1;
+        }
+        .sislac-dashboard .s-stat-2 .s-sub {
+            font-size: 12.5px; color: var(--s-muted); margin: 10px 0 0;
+        }
+        .sislac-dashboard .s-stat-art {
+            position: absolute; right: -12px; bottom: -12px;
+            width: 110px; height: 70px; opacity: .65;
+            pointer-events: none;
+        }
+        .sislac-dashboard .s-art-donut {
+            background:
+                radial-gradient(circle at 60% 60%, transparent 22px, var(--s-primary-100) 22px 32px, transparent 33px);
+        }
+        .sislac-dashboard .s-art-grid {
+            background-image:
+                linear-gradient(var(--s-primary-100) 1px, transparent 1px),
+                linear-gradient(90deg, var(--s-primary-100) 1px, transparent 1px);
+            background-size: 14px 14px;
+        }
+        .sislac-dashboard .s-art-line {
+            background:
+                linear-gradient(180deg, transparent 60%, rgba(139,92,246,.18) 100%),
+                radial-gradient(60% 60% at 30% 70%, rgba(79,70,229,.22), transparent 70%);
+        }
+        .sislac-dashboard .s-art-bars {
+            background:
+                linear-gradient(to top, var(--s-primary-100) 30%, transparent 30%) 0    bottom/12px 30% no-repeat,
+                linear-gradient(to top, var(--s-primary-100) 55%, transparent 55%) 18px bottom/12px 55% no-repeat,
+                linear-gradient(to top, var(--s-primary-100) 40%, transparent 40%) 36px bottom/12px 40% no-repeat,
+                linear-gradient(to top, var(--s-primary-100) 70%, transparent 70%) 54px bottom/12px 70% no-repeat,
+                linear-gradient(to top, var(--s-primary-100) 50%, transparent 50%) 72px bottom/12px 50% no-repeat,
+                linear-gradient(to top, var(--s-primary-100) 85%, transparent 85%) 90px bottom/12px 85% no-repeat;
+        }
+
+        /* ===== Painéis (Fluxo, Pacientes, Produtividade) ===== */
+        .sislac-dashboard .s-panel { padding: 22px 22px 18px; }
+        .sislac-dashboard .s-panel-head {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            gap: 12px; margin-bottom: 16px;
+        }
+        .sislac-dashboard .s-panel-sub { font-size: 12.5px; color: var(--s-muted); margin: 4px 0 0; }
+        .sislac-dashboard .s-link { color: var(--s-primary); font-size: 12.5px; font-weight: 600; }
+
+        /* Fluxo operacional rows */
+        .sislac-dashboard .s-flow { display: flex; flex-direction: column; gap: 10px; }
+        .sislac-dashboard .s-flow-row {
+            display: grid;
+            grid-template-columns: 44px 1fr auto auto;
+            align-items: center; gap: 14px;
+            padding: 14px 16px;
+            background: #fafbff;
+            border: 1px solid var(--s-border-soft);
+            border-radius: 14px;
+            transition: all .2s ease;
+        }
+        .sislac-dashboard .s-flow-row:hover { background: #fff; border-color: var(--s-primary-100); transform: translateX(2px); }
+        .sislac-dashboard .s-flow-ic {
+            width: 38px; height: 38px; border-radius: 11px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--s-primary-50); color: var(--s-primary);
+            font-size: 20px; border: 1px solid var(--s-primary-100);
+        }
+        .sislac-dashboard .s-flow-ic-warn { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+        .sislac-dashboard .s-flow-ic-dark { background: #0f172a; color: #fff; border-color: #0f172a; }
+        .sislac-dashboard .s-flow-text { font-weight: 600; font-size: 14px; color: var(--s-ink); }
+        .sislac-dashboard .s-flow-val { font-weight: 800; font-size: 18px; color: var(--s-ink); min-width: 28px; text-align: right; }
+
+        /* KPI blocks */
+        .sislac-dashboard .s-kpi-block { margin-bottom: 16px; }
+        .sislac-dashboard .s-kpi-block .s-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .1em; color: var(--s-muted); margin: 0 0 8px;
+        }
+        .sislac-dashboard .s-kpi-block .s-big {
+            font-size: 36px; font-weight: 800; letter-spacing: -.02em; margin: 0; color: var(--s-ink);
+        }
+        .sislac-dashboard .s-kpi-line {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 0; border-top: 1px solid var(--s-border-soft);
+            font-size: 13.5px; color: var(--s-muted);
+        }
+        .sislac-dashboard .s-kpi-line strong { color: var(--s-ink); font-weight: 700; }
+        .sislac-dashboard .s-kpi-line .s-pos { color: #059669; }
+        .sislac-dashboard .s-kpi-line i { margin-right: 6px; }
 
         .sislac-dashboard .s-campaign {
             border-radius: var(--s-radius); overflow: hidden; margin-top: 20px;
