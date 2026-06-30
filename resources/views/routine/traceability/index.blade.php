@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Rastreabilidade @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Rastreabilidade @endslot
         @slot('li_1') Rotina @endslot
@@ -58,7 +63,7 @@
         </div>
     </div>
     <div data-js="container-modal"></div>
-
+</div>
 @endsection
 
 @section('script')

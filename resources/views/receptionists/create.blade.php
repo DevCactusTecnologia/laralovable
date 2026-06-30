@@ -1,12 +1,16 @@
 @extends('layouts.master-layouts')
 @section('title'){{ __('Adicionar novo recepcionista') }}@endsection
 
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
-    
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Adicionar novo recepcionista @endslot
         @slot('li_1') <a href="{{ url('/') }}">{{ __('Dashboard') }}</a> @endslot
@@ -154,7 +158,7 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section('script')

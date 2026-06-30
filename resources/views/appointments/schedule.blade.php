@@ -1,6 +1,7 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Agendar Atendimento') }} @endsection
 @section('css')
+    @include('partials.s-design-system')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/fullcalendar/fullcalendar.min.css') }}">
 @endsection
 
@@ -9,7 +10,7 @@
 @endsection
 
 @section('content')
-        
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Agendar Atendimento @endslot
         @slot('li_1') Dashboard @endslot
@@ -144,7 +145,7 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section('script')

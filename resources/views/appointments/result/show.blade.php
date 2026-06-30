@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Ver resultado @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') RESULTADO DO EXAME @endslot
         @slot('li_1') Dashboard @endslot
@@ -373,5 +378,5 @@
         </div>
 
     </div>
-
+</div>
 @endsection

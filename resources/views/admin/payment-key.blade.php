@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Gateway de pagamento') }} @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <!-- start page title -->
         @component('components.breadcrumb')
             @slot('title') Gateway de pagamento @endslot
@@ -95,7 +100,8 @@
             </div>
         </div>
         <!-- end page title -->
-    @endsection
+</div>
+@endsection
 @section('script')
     <script src="{{ URL::asset('assets/js/pages/notification.init.js') }}"></script>
     <script>

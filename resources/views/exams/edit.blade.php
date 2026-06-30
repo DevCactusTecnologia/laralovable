@@ -1,11 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Editar dados do Exame @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
-    
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Editar dados do Exame @endslot
         @slot('li_1') <a href="{{ url('/') }}">{{ __('Dashboard') }}</a> @endslot
@@ -229,7 +233,7 @@
     {{-- MODAL DE LISTAGEM DE FILTROS, SALVAR E EDITAR FILTRO --}}
     @include('exams.modal.filters.index')
     @include('exams.modal.filters.save')
-
+</div>
 @endsection
     
 @section('script')

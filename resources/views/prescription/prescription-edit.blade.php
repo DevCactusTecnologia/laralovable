@@ -3,6 +3,7 @@
     {{ __('Atualizar prescrição') }}
 @endsection
 @section('css')
+    @include('partials.s-design-system')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css') }}">
 @endsection
 @section('body')
@@ -10,6 +11,7 @@
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
@@ -208,7 +210,8 @@
                 </div>
             </div>
         </div>
-    @endsection
+</div>
+@endsection
     @section('script')
         <script src="{{ URL::asset('assets/libs/select2/select2.min.js') }}"></script>
         <!-- form mask -->

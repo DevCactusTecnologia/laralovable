@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') Lista de ocorrências por atendimento @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
 
 @section('content')
+<div class="s-page">
     @component('components.breadcrumb')
         @slot('title') Lista de ocorrências por atendimento @endslot
         @slot('li_1') Dashboard @endslot
@@ -144,6 +149,7 @@
         </form>
         
     </div>
+</div>
 @endsection
 
 @section('script')

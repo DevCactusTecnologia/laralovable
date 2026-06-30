@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Invoice Details') }} @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <!-- start page title -->
         @component('components.breadcrumb')
             @slot('title') Invoice Details @endslot
@@ -127,4 +132,5 @@
             </div>
         </div>
         <!-- end row -->
-    @endsection
+</div>
+@endsection

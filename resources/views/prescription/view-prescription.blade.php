@@ -1,10 +1,15 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Detalhes da prescrição') }} @endsection
+
+@section('css')
+    @include('partials.s-design-system')
+@endsection
 @section('body')
 
     <body data-topbar="dark" data-layout="horizontal">
     @endsection
     @section('content')
+<div class="s-page">
         <!-- start page title -->
         @component('components.breadcrumb')
             @slot('title') Detalhes da prescrição @endslot
@@ -132,4 +137,5 @@
             </div>
         </div>
         <!-- end row -->
-    @endsection
+</div>
+@endsection
