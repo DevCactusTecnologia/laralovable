@@ -19,4 +19,5 @@
 </script>
 @include('partials.s-phase1')
 @include('partials.s-phase2')
+@include('partials.s-modern')
 @yield('script-bottom')
