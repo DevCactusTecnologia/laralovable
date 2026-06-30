@@ -1,7 +1,8 @@
 <div class="s-page-header">
     <div>
-        <h4>Olá, {{ $user->first_name }} 👋</h4>
-        <div class="s-crumb">Bem-vindo ao {{ config('app.name') }} Dashboard</div>
+        <span class="s-badge">Análises clínicas · Painel do biomédico</span>
+        <h4>Olá, <span class="s-grad">{{ $user->first_name }}</span> 👋</h4>
+        <div class="s-crumb">Bem-vindo ao {{ config('app.name') }} — amostras, validações e laudos em um só lugar.</div>
     </div>
 </div>
 
