@@ -17,4 +17,5 @@
         toastr.error("{{ session('error') }}");
     @endif
 </script>
+@include('partials.s-phase1')
 @yield('script-bottom')
