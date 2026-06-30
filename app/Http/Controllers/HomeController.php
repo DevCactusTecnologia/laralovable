@@ -28,6 +28,8 @@ class HomeController extends Controller
                 ]
             );
 
+            $flow = $this->getOperationalFlow();
+
             return view('index', [ 
                 'total_appointment' => DB::select('SELECT COUNT(id) AS total FROM appointments')[0]->total,
                 'total_exam_month_current' => $examsMonths[0]->total,
@@ -36,16 +38,26 @@ class HomeController extends Controller
                 'today_appointment_exam_total' => $this->getTotalAppointmentExamWhere('appointments.appointment_date = DATE(NOW() - INTERVAL 3 HOUR)'),
                 'pending_appointment_total' => $this->getTotalAppointmentWhere('status = 0'),
                 'pending_appointment_exam_total' => $this->getTotalAppointmentExamWhere('appointments.status = 0'),
+                'flow_collected_today' => $flow->collected_today,
+                'flow_in_analysis' => $flow->in_analysis,
+                'flow_results_available' => $flow->results_available,
+                'flow_released_today' => $flow->released_today,
                 'occurrences' => $this->getTotalOccurrences(),
                 'campaignCurrent' => Campaign::monthCurrent(),
             ]);
         
         } elseif ($role == 'receptionist' || $role == 'biomedical') {
+            $flow = $this->getOperationalFlow();
+
             return view('index', [
                 'today_appointment_total' => $this->getTotalAppointmentWhere('appointment_date = DATE(NOW() - INTERVAL 3 HOUR)'),
                 'today_appointment_exam_total' => $this->getTotalAppointmentExamWhere('appointments.appointment_date = DATE(NOW() - INTERVAL 3 HOUR)'),
                 'pending_appointment_total' => $this->getTotalAppointmentWhere('status = 0'),
                 'pending_appointment_exam_total' => $this->getTotalAppointmentExamWhere('appointments.status = 0'),
+                'flow_collected_today' => $flow->collected_today,
+                'flow_in_analysis' => $flow->in_analysis,
+                'flow_results_available' => $flow->results_available,
+                'flow_released_today' => $flow->released_today,
                 'occurrences' => $this->getTotalOccurrences(),
                 'appointments' => $this->getAppointmentsToday(),
                 'campaignCurrent' => Campaign::monthCurrent(),
