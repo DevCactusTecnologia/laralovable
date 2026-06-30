@@ -1,115 +1,95 @@
 @extends('layouts.master-layouts')
 @section('title') {{ __('Lista de Exames') }} @endsection
-
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
+@section('css') @include('partials.s-design-system') @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">
-                    Lista de Exames
-                </h4>
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Dashboard') }}</a></li>
-                        <li class="breadcrumb-item active">Lista de Exames</li>
-                    </ol>
-                </div>
-            </div>
+<div class="s-page">
+    <div class="s-head">
+        <div class="s-head-title">
+            <h1>Exames</h1>
+            <p>Catálogo de exames laboratoriais disponíveis.</p>
         </div>
+        <a href="{{ route('exams.create') }}" class="s-btn s-btn-primary">
+            <i class="bx bx-plus"></i> Novo Exame
+        </a>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-3">
-                    <a href="{{ route('exams.create') }}" class="btn btn-primary waves-effect waves-light mb-4">
-                        <i class="bx bx-plus font-size-16 align-middle mr-2"></i> {{ __('Novo Exame') }}
-                    </a>
-                </div>
-                <div class="col-lg-4"></div>
-                <div class="col-lg-5 text-right">
-                    @csrf
-                    <input type="text" id="searchExam" class="form-control"
-                        placeholder="Pesquisar pelo nome do exame ou abreviação"  
-                    />
-                    <input type="hidden" id="urlSearch" value="{{ route('exams.search.all') }}">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="detail_box" style="overflow-x: hidden; overflow-y: scroll; height: 300px;">
-                        <table class="w-100 table table-sm table-hover table-centered sislac_table table_form">
-                            <thead class="bg-light">
-                                <tr>                            
-                                    <th style="width: 30%;">Nome do Exame</th>
-                                    <th style="width: 10%;">Abreviação</th>
-                                    <th style="width: 10%;">Categoria</th>
-                                    <th style="width: 5%;">Prazo</th>
-                                    <th style="width: 7%;">Destino</th>
-                                    <th style="width: 9%;">G. Rótulos</th>                            
-                                    <th style="width: 10%;">Qtd. Etiquetas</th>
-                                    <th style="width: 5%;">Kit</th>                            
-                                    <th style="width: 9%;">Status</th>                            
-                                    <th style="width: 5%;">Ação</th>              
-                                </tr>
-                            </thead>
-                            <tbody id="contentExam">
-                                @foreach ($exams as $exam)
-                                    <tr>
-                                        <td>{{ $exam->name }}</td>
-                                        <td>{{ $exam->abbreviation }}</td>
-                                        <td>{{ $exam->category }}</td>
-                                        <td>{{ $exam->deadline }}</td>
-                                        <td>{{ $exam->destiny }}</td>
-                                        <td>{{ $exam->label_group }}</td>
-                                        <td>{{ $exam->quantity_label }}</td>
-                                        <td>{{ $exam->exam_kit }}</td>
-                                        <td>
-                                            <span class="{{ $exam->is_active->getColor() }}">
-                                                {{ $exam->is_active->getName() }}
-                                            </span>
-                                        <td>
-                                            <a href="{{ route('exams.edit', $exam->id) }}" title="Atualizar Exame"
-                                                class="btn btn-primary btn-sm btn-rounded waves-effect mb-2 mb-md-0"
-                                            >
-                                                <i class="mdi mdi-lead-pencil"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                            <tbody id="loader" style="display: none;">
-                                <tr>
-                                    <td colspan="10" >
-                                        <div class="d-flex justify-content-center align-items-center text-primary" 
-                                            style="font-size: 20px; height: 200px;"
-                                        >
-                                            <span class="spinner-border spinner-border-sm mr-2" 
-                                                role="status" aria-hidden="true">
-                                            </span> Carregando...
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+    @if (session()->has('success'))
+        <div class="s-alert success"><i class="bx bx-check-circle font-size-18"></i><span>{!! session()->get('success') !!}</span></div>
+        {{ session()->forget('success') }}
+    @endif
 
-                        <div class="row" id="paginate">
-                            <div class="col-md-12">
-                                <div class="d-flex justify-content-end">
-                                    {{ $exams->links() }}
+    <div class="s-card">
+        <div class="s-card-head">
+            <div class="s-card-head-left">
+                <h2>Lista de Exames</h2>
+                <span class="s-count">{{ $exams->total() ?? $exams->count() }}</span>
+            </div>
+            <div class="s-search">
+                <i class="bx bx-search"></i>
+                @csrf
+                <input type="text" id="searchExam" placeholder="Pesquisar pelo nome ou abreviação..." />
+                <input type="hidden" id="urlSearch" value="{{ route('exams.search.all') }}">
+            </div>
+        </div>
+
+        <div class="s-table-wrap">
+            <table class="s-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Exame</th>
+                        <th style="width:110px;">Abrev.</th>
+                        <th style="width:140px;">Categoria</th>
+                        <th style="width:90px;">Prazo</th>
+                        <th style="width:110px;">Destino</th>
+                        <th style="width:110px;">G. Rótulos</th>
+                        <th style="width:100px;">Qtd. Etiq.</th>
+                        <th style="width:80px;">Kit</th>
+                        <th style="width:120px;">Status</th>
+                        <th style="width:80px;text-align:right;">Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="contentExam">
+                    @forelse ($exams as $exam)
+                        @php
+                            $statusName = $exam->is_active?->getName();
+                            $isActive = $statusName && (stripos($statusName,'ativo') !== false && stripos($statusName,'inativo') === false);
+                        @endphp
+                        <tr>
+                            <td data-label="Nome" class="s-cell-main"><strong>{{ $exam->name }}</strong></td>
+                            <td data-label="Abrev."><span class="s-tag indigo">{{ $exam->abbreviation }}</span></td>
+                            <td data-label="Categoria">{{ $exam->category }}</td>
+                            <td data-label="Prazo">{{ $exam->deadline }}</td>
+                            <td data-label="Destino"><span class="s-tag">{{ $exam->destiny }}</span></td>
+                            <td data-label="G. Rótulos">{{ $exam->label_group }}</td>
+                            <td data-label="Qtd. Etiq.">{{ $exam->quantity_label }}</td>
+                            <td data-label="Kit">{{ $exam->exam_kit }}</td>
+                            <td data-label="Status"><span class="s-status {{ $isActive ? 'on' : 'off' }}"><span class="s-dot"></span>{{ $statusName ?? '—' }}</span></td>
+                            <td data-label="Ação" style="text-align:right;">
+                                <div class="s-actions">
+                                    <a href="{{ route('exams.edit', $exam->id) }}" class="s-icon-btn edit" title="Atualizar"><i class="mdi mdi-pencil-outline"></i></a>
                                 </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="10"><div class="s-empty"><i class="bx bx-test-tube"></i>Nenhum exame encontrado.</div></td></tr>
+                    @endforelse
+                </tbody>
+                <tbody id="loader" style="display:none;">
+                    <tr><td colspan="10"><div class="s-empty"><span class="spinner-border spinner-border-sm mr-2 text-primary"></span>Carregando...</div></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="s-foot" id="paginate">
+            <div class="s-foot-info">Total: <strong>{{ $exams->total() ?? $exams->count() }}</strong> exames</div>
+            {{ $exams->links() }}
         </div>
     </div>
+</div>
 @endsection
 
 @section('script')

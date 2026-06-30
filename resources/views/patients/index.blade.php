@@ -3,122 +3,98 @@
 @section('body')
     <body data-topbar="dark" data-layout="horizontal">
 @endsection
+@section('css') @include('partials.s-design-system') @endsection
 
 @section('content')
-    @component('components.breadcrumb')
-        @slot('title') Lista de Pacientes @endslot
-        @slot('li_1') Dashboard @endslot
-        @slot('li_2') Pacientes @endslot
-    @endcomponent
+<div class="s-page">
+    <input type="hidden" data-js="base-url" value="{{ url('/') }}">
 
-    {{-- ALERT --}}
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {!! session()->get('success') !!}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="s-head">
+        <div class="s-head-title">
+            <h1>Pacientes</h1>
+            <p>Gerencie os pacientes cadastrados no laboratório.</p>
         </div>
+        <a href="{{ route('patients.create') }}" class="s-btn s-btn-primary">
+            <i class="bx bx-plus"></i> Novo Paciente
+        </a>
+    </div>
+
+    @if (session()->has('success'))
+        <div class="s-alert success"><i class="bx bx-check-circle font-size-18"></i><span>{!! session()->get('success') !!}</span></div>
         {{ session()->forget('success') }}
     @endif
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <input type="hidden" data-js="base-url" value="{{ url('/') }}">
-                <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <a href="{{ route('patients.create') }}" class="btn btn-primary waves-effect mb-4">
-                                <i class="bx bx-plus font-size-16 align-middle mr-2"></i> {{ __('Novo Paciente') }}
-                            </a>
-                        </div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-5 text-right">
-                            @csrf
-                            
-                            <input class="form-control" id="searchPatient" type="text" name="search_name" 
-                                placeholder="Pesquisar paciente pelo nome, CPF ou CNS"  
-                            />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12" style="overflow-x: hidden; overflow-y: scroll; height: 650px;">
-                            <table class="table table-hover table-centered table-bordered table-sm dt-responsive nowrap">
-                                <thead class="bg-light">
-                                    <tr>
-                                        <th style="width: 2%;">{{ __('Nº') }}</th>
-                                        <th style="width: 50%;">{{ __('Nome') }}</th>
-                                        <th style="width: 13%;">{{ __('CPF') }}</th>
-                                        <th style="width: 20%;">{{ __('CNS') }}</th>
-                                        <th>{{ __('Status') }}</th>
-                                        <th style="width: 12%;">{{ __('Opções') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="contentPatient">
-                                    @php
-                                        $currentpage = $patients->currentPage();
-                                    @endphp
-                                    @foreach ($patients as $item)
-                                        <tr>
-                                            <td>
-                                                {{ $loop->index + 1 + $limit * ($currentpage - 1) }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('patients.show', $item->id) }}">
-                                                    {{ $item->first_name }} {{ $item->last_name }}
-                                                </a>
-                                            </td>
-                                            <td>{{ $item->patient->cpf_masked }}</td>
-                                            <td>{{ $item->patient->cns_masked }}</td>
-                                            <td>
-                                                <span class="{{ $item->patient->is_deleted?->getColor() }}">
-                                                    {{ $item->patient->is_deleted?->getName() }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('patients.show', $item->id) }}" title="Visualizar Perfil"
-                                                    class="btn btn-primary btn-sm btn-rounded waves-effect mb-2 mb-md-0"
-                                                >
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                                <a href="{{ route('patients.edit', $item->id) }}" title="Editar Perfil"
-                                                    class="btn btn-primary btn-sm btn-rounded waves-effect mb-2 mb-md-0"
-                                                >
-                                                    <i class="mdi mdi-lead-pencil"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                                <tbody id="loader" style="display: none;">
-                                    <tr>
-                                        <td colspan="5" >
-                                            <div class="d-flex justify-content-center align-items-center text-primary" 
-                                                style="font-size: 20px; height: 200px;"
-                                            >
-                                                <span class="spinner-border spinner-border-sm mr-2" 
-                                                    role="status" aria-hidden="true">
-                                                </span> Carregando...
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-12 text-center mt-3" id="paginate">
-                            <div class="d-flex justify-content-end">
-                                {{ $patients->links() }}
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+    <div class="s-card">
+        <div class="s-card-head">
+            <div class="s-card-head-left">
+                <h2>Lista de Pacientes</h2>
+                <span class="s-count">{{ $patients->total() ?? $patients->count() }}</span>
+            </div>
+            <div class="s-search">
+                <i class="bx bx-search"></i>
+                @csrf
+                <input type="text" id="searchPatient" name="search_name" placeholder="Pesquisar por nome, CPF ou CNS..." />
             </div>
         </div>
+
+        <div class="s-table-wrap">
+            <table class="s-table">
+                <thead>
+                    <tr>
+                        <th style="width:60px;">#</th>
+                        <th>Paciente</th>
+                        <th style="width:160px;">CPF</th>
+                        <th style="width:180px;">CNS</th>
+                        <th style="width:130px;">Status</th>
+                        <th style="width:120px;text-align:right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="contentPatient">
+                    @php $currentpage = $patients->currentPage(); @endphp
+                    @forelse ($patients as $item)
+                        @php
+                            $fullName = trim(($item->first_name ?? '').' '.($item->last_name ?? ''));
+                            $initials = collect(explode(' ', $fullName))->filter()->take(2)->map(fn($p)=>mb_substr($p,0,1))->implode('');
+                            $statusName = $item->patient?->is_deleted?->getName();
+                            $isActive = $statusName && stripos($statusName,'inativo') === false;
+                        @endphp
+                        <tr>
+                            <td data-label="#"><span class="s-num">{{ $loop->index + 1 + $limit * ($currentpage - 1) }}</span></td>
+                            <td data-label="Paciente" class="s-cell-main">
+                                <div class="s-avatar">
+                                    <div class="s-av">{{ strtoupper($initials ?: 'P') }}</div>
+                                    <div class="s-av-info">
+                                        <a href="{{ route('patients.show', $item->id) }}" class="s-name">{{ $fullName ?: '—' }}</a>
+                                        <div class="s-meta">{{ $item->email ?? 'sem e-mail' }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-label="CPF"><span class="s-tag">{{ $item->patient->cpf_masked ?? '—' }}</span></td>
+                            <td data-label="CNS"><span class="s-tag outline">{{ $item->patient->cns_masked ?? '—' }}</span></td>
+                            <td data-label="Status"><span class="s-status {{ $isActive ? 'on' : 'off' }}"><span class="s-dot"></span>{{ $statusName ?? '—' }}</span></td>
+                            <td data-label="Ações" style="text-align:right;">
+                                <div class="s-actions">
+                                    <a href="{{ route('patients.show', $item->id) }}" class="s-icon-btn view" title="Visualizar"><i class="mdi mdi-eye-outline"></i></a>
+                                    <a href="{{ route('patients.edit', $item->id) }}" class="s-icon-btn edit" title="Editar"><i class="mdi mdi-pencil-outline"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="6"><div class="s-empty"><i class="bx bx-user-x"></i>Nenhum paciente encontrado.</div></td></tr>
+                    @endforelse
+                </tbody>
+                <tbody id="loader" style="display:none;">
+                    <tr><td colspan="6"><div class="s-empty"><span class="spinner-border spinner-border-sm mr-2 text-primary"></span>Carregando...</div></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="s-foot" id="paginate">
+            <div class="s-foot-info">Mostrando <strong>{{ $patients->count() }}</strong> de <strong>{{ $patients->total() ?? $patients->count() }}</strong> pacientes</div>
+            {{ $patients->links() }}
+        </div>
     </div>
+</div>
 @endsection
 
 @section('script')
